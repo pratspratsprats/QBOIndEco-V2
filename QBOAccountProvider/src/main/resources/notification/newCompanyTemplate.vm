@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<body>
+
+<p>Welcome, let's get started with QuickBooks</p>
+<p>
+Here is your <a href="https://qbo.intuit.com/qbo37/login?locale=en_IN">login</a> information for easy reference:
+<p>
+<table border="1" cellspacing="1" cellpadding="2" width=300>
+<tr>
+<td style="background-color:Gainsboro">Company:</td> <td><strong> $item.companyname <strong></td>
+</tr>
+<tr>
+<td style="background-color:Gainsboro">User ID:</td> <td><strong>$item.username<strong></td>
+</tr>
+<tr>
+<td style="background-color:Gainsboro">User Email:</td> <td><strong>$item.emailid<strong></td>
+</tr>
+<tr>
+<td style="background-color:Gainsboro">Password:</td> <td><strong>$item.password<strong></td>
+</tr>
+</table>
+</p>
+You'll need this information when you <a href="https://qbo.intuit.com/qbo37/login?locale=en_IN">login</a> to QuickBooks </br>
+</p>
+<a href="http://www.quickbooks.in"><img src="cid:qblogo" width="300" height="80"></a>
+<p><em>
+<font size="2">
+This email was sent from an auto-notification system that can't accept incoming email. Please DO NOT REPLY to this message.<br>You have received this business communication as part of our efforts to fulfill your request or service your account.<br>You may receive this and other business communications from us even if you have opted out of marketing messages.<br>Intuit respects your privacy. To learn more, read our <a href="http://www.quickbooks.in/privacy.jsp">Privacy Statement</a>.<br>Please view QuickBooks End User License Agreement for details of  <a href="http://www.quickbooks.in/terms.jsp">terms</a>, conditions, features, support, pricing and service options which are subject to change without notice.<br>
+If you receive a suspicious email, please Report It. Visit <a href="https://security.intuit.com/index.php">Security</a> to find out more.<br>© Intuit India Software Solutions Private Limited
+</font>
+</em>
+</p>
+</body>
+</html>

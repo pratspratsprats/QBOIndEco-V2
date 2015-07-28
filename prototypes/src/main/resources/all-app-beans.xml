@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xsi:schemaLocation="http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:annotation-config />
+
+	<!-- Scan for Jersey Rest Annotations -->
+	<context:component-scan base-package="com.intuit.qbo.ecommerce.krc.api" />
+
+	<context:property-placeholder location="classpath:app.properties" />
+
+	<bean class="com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON" />
+	<bean class="com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider"
+		scope="singleton" />
+	<bean class="com.wordnik.swagger.jaxrs.listing.ResourceListingProvider"
+		scope="singleton" />
+	<bean class="com.intuit.qbo.ecommerce.krc.api.SwaggerConfigurer"
+		init-method="init">
+		<property name="apiVersion" value="${swagger.apiVersion}" />
+		<property name="basePath" value="${swagger.basePath}" />
+		<property name="resourcePackage" value="${swagger.resourcePackage}" />
+	</bean>
+
+</beans>
+
+

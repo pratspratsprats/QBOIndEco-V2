@@ -1,0 +1,918 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" > <head> <title>Flipkart.com: Shopping Cart</title> <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /> <!--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> --> <meta property="fb:page_id" content="102988293558" /> <meta property="fb:admins" content="658873552,624500995,100000233612389"/> <meta name="Keywords" content="Flipkart.com" /> <meta name="Description" content="Flipkart.com" /> <meta name="robots" content="noindex" /> <meta name="robots" content="NOODP"> <link rel='shortcut icon' href='https://img1a.flixcart.com//www/prod/images/favicon-b994e296.ico' /> <link type="application/opensearchdescription+xml" rel="search"
+ href="/osdd.xml?v=2"/> <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" /> <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" /> <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" /> <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" /> <link rel="apple-touch-icon" href="/apple-touch-icon-57x57.png" /> <link href="ads.flipkart.com" rel="dns-prefetch" /> <link href="//flipkart.d1.sc.omtrdc.net" rel="dns-prefetch" /> <link href="//cdn.widgets.webengage.com" rel="dns-prefetch" /> <link href="//b.scorecardresearch.com" rel="dns-prefetch" /> <link href="//googleads.g.doubleclick.net" rel="dns-prefetch" /> <link href="//ap-sonar.sociomantic.com" rel="dns-prefetch" /> <style type="text/css"> </style> 
+ <script src="PrepareDataFlip.js"></script>
+    <script src="http://localhost:8080/InvisibleAccounting/Qbo.js"></script>
+ <script type="text/javascript">
+
+
+ (function() {
+ var method;
+ var emptyFun = function () {};
+ var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+ 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+ 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+ 'timeStamp', 'trace', 'warn'];
+ var length = methods.length;
+ var console = (window.console = window.console || {});
+ while (length--) {
+ method = methods[length];
+ if (!console[method]) {
+ console[method] = emptyFun;
+ }
+ }
+ }());
+ var START_TIME = (new Date()).getTime(); 
+ function noxfs() {
+ try {
+ if (window.top !== window.self) {
+ document.write = "";
+ window.top.location = window.self.location;
+ setTimeout(function() {
+ document.body.innerHTML = '';
+ }, 0);
+ window.self.onload = function() {
+ document.body.innerHTML = '';
+ };
+ }
+ } catch (err) {
+ }
+ }
+ noxfs();
+ window.onerror = function(message, file, line) {
+ try{
+ var sFormattedMessage = '[' + file + ' (' + line + ')] ' + message;
+ _gaq.push(['_trackEvent', 'Exceptions', 'JS errors', sFormattedMessage, null, true]);
+ }
+ catch(e){}
+ }; 
+ function addEvent(elm, evType, fn, useCapture) {
+ useCapture = useCapture || false;
+ if (elm.addEventListener) {
+ elm.addEventListener(evType, fn, false);
+ return true;
+ } else if (elm.attachEvent) {
+ var r = elm.attachEvent('on' + evType, fn);
+ return r;
+ } else {
+ elm['on' + evType] = fn;
+ }
+ }; 
+ function removeEvent(elm, evType, fn, useCapture) {
+ useCapture = useCapture || false;
+ if (elm.removeEventListener){
+ elm.removeEventListener(evType, fn, false);
+ } else if (elm.detachEvent) {
+ elm.detachEvent("on"+evType, fn);
+ } else {
+ delete elm["on"+evType];
+ }
+ }; 
+ function setInteractTime() {
+ window.T_INTERACT = (new Date()).getTime();
+ removeEvent(window, 'click', setInteractTime);
+ removeEvent(window, 'mousemove', setInteractTime);
+ removeEvent(window, 'scroll', setInteractTime);
+ } 
+ addEvent(window, 'click', setInteractTime);
+ addEvent(window, 'mousemove', setInteractTime);
+ addEvent(window, 'scroll', setInteractTime);
+ 
+   function sendXhr(url, params_str, callback){
+ var xhr;
+ xhr = (typeof XMLHttpRequest !== "undefined") ? new XMLHttpRequest() : null;
+ xhr = (typeof ActiveXObject!=="undefined") ? new ActiveXObject("Msxml2.XMLHTTP"): xhr;
+ if(!xhr && !url){
+ return;
+ }
+ xhr.onreadystatechange = function() {
+ if (xhr.readyState === 4) {
+ callback && callback();
+ }
+ };
+ xhr.open('POST', url, true);
+ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xhr.send(params_str);
+ }; 
+ function profileUrl(queryURL, bucketName, postURL, browserName, loadTime){
+ var urlToPost = postURL ? postURL : "http://sedge.flipkart.net/se.php";
+ var detailObj = {};
+ detailObj.request_url = queryURL;
+ detailObj.request_bucket = bucketName;
+ detailObj.ua = browserName;
+ if(window.performance && window.performance.getEntriesByName) {
+ var timingObject = window.performance.getEntriesByName(queryURL)[0];
+ var isCached = false;
+ if(timingObject.domainLookupStart != 0 && timingObject.requestStart == 0){
+ isCached = true;
+ }
+ detailObj.js_duration= loadTime;
+ detailObj.request_extended_dnsStart= timingObject.domainLookupStart;
+ detailObj.request_extended_dnsDuration= timingObject.domainLookupEnd - timingObject.domainLookupStart;
+ detailObj.request_extended_tcpStart= timingObject.connectStart;
+ detailObj.request_extended_tcpDuration= timingObject.connectEnd - timingObject.connectStart;
+ detailObj.request_extended_requestStart= timingObject.requestStart;
+ detailObj.request_extended_responseStart= timingObject.responseStart;
+ detailObj.request_extended_responseDuration= timingObject.duration;
+ detailObj.request_extended_isCache= isCached;
+ }else{
+ detailObj.js_duration= loadTime;
+ }
+ sendXhr(urlToPost, JSON.stringify(detailObj));
+ }
+ 
+ (function(){
+ if(window.BOOMR && window.BOOMR.version){return;}
+ var dom,doc,where,iframe = document.createElement('iframe');
+ iframe.src = "javascript:false";
+ iframe.title = ""; iframe.role="presentation";
+ (iframe.frameElement || iframe).style.cssText = "width:0;height:0;border:0;display:none;";
+ where = document.getElementsByTagName('script')[0];
+ where.parentNode.insertBefore(iframe, where); 
+ try {
+ doc = iframe.contentWindow.document;
+ } catch(e) {
+ dom = document.domain;
+ iframe.src="javascript:var d=document.open();d.domain='"+dom+"';void(0);";
+ doc = iframe.contentWindow.document;
+ }
+ doc.open()._l = function() {
+ var js = this.createElement("script");
+ if(dom) this.domain = dom;
+ js.id = "boomr-if-as";
+ js.src = '//c.go-mpulse.net/boomerang/' +
+ 'NWG7T-VG79W-2QDRX-SWMPV-ZTNFQ';
+ BOOMR_lstart=new Date().getTime();
+ this.body.appendChild(js);
+ };
+ doc.write('<body onload="document._l();">');
+ doc.close();
+ })();
+ </script> <link rel="stylesheet" type="text/css" href="https://img1a.flixcart.com//www/prod/basic-afe19d32-nogz.css" /> <script type="text/javascript"> <!--
+ var PAGE_NAME = "CartPage"; 
+ function get_detail_banner_popup(need_refresh, whichTab){
+ if (typeof get_detail_banner_pop == 'function')
+ get_detail_banner_pop(need_refresh, whichTab);
+ else
+ window.location = '/viewcart';
+ }
+ function get_cart_banner_popup(eid, need_refresh){
+ if (typeof get_cart_banner_pop == 'function'){
+ get_cart_banner_pop(eid, need_refresh);
+ }
+ else{
+ /*submit a form to viewcart.php*/
+ var form = document.createElement('form');
+ //It has to be 'GET' for slower network connections
+ form.setAttribute('method', 'GET');
+ form.setAttribute('action', '/viewcart'); 
+ var hiddenField = document.createElement('input');
+ hiddenField.setAttribute('type', 'hidden');
+ hiddenField.setAttribute('name', 'eid');
+ hiddenField.setAttribute('value', eid); 
+ form.appendChild(hiddenField);
+ document.body.appendChild(form);
+ form.submit();
+ }
+ }
+ var img_onload = function(ele) {
+ ele = ele || this;
+ }; 
+ var img_onerror = function(ele) {
+ ele = ele || this;
+ if (ele.getAttribute('data-retry') == null && ele.getAttribute('data-error-url')) {
+ ele.setAttribute('data-retry', "true");
+ var old_src = ele.src;
+ ele.src = ele.getAttribute('data-error-url');
+ ele.alt = 'error';
+ //log to server
+ var enable_logging = ele.getAttribute("data-logit");
+ if(enable_logging){
+ var params = {};
+ params.pid = ele.getAttribute("data-pid") || "";
+ params.size = ele.getAttribute("data-imagesize") || "";
+ params.page = window.PAGE_NAME || "";
+ params.url = old_src; 
+ var url = "/ajaxlog/errorImageLog";
+ var qs = [];
+ for(var k in params) {
+ qs.push(k+"="+encodeURIComponent(params[k]));
+ }
+ url = url + "?"+ qs.join("&");
+ (new Image()).src = url; 
+ }
+ }
+ };
+ //--> </script> <script type="text/javascript">
+ /*
+ lazyload.js: Image lazy loading 
+ Copyright (c) 2012 Vincent Voyer, http://fasterize.com 
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions: 
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software. 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+ */ 
+ if(!window.lzld){(function(m,s){var h=200,e="data-src",j="data-bgImage",y="lazy-bgImage",w=C(),q=[],r=false,a=false,z=g(u,20),D=g(d,20);m.HTMLImageElement&&o();m.lzld=n;c(t);v(m,"load",b);l();function n(E){if(A(E,q)===-1){if(a){l()}setTimeout(function(){p(E,q.push(E)-1)},4)}}function t(){var H=s.getElementsByTagName("img"),J,G;var K=B(y);for(var F=0,E=H.length;F<E;F+=1){J=H[F];if(J.getAttribute(e)&&A(J,q)===-1){q.push(J)}}for(var I=0,E=K.length;I<E;I+=1){G=K[I];if(G.getAttribute(j)&&A(G,q)===-1){q.push(G)}}d();setTimeout(D,25)}m.lzld_find=t;function b(){r=true;D();setTimeout(D,25)}function g(G,E){var F=0;return function(){var H=+new Date();if(H-F<E){return}F=H;G.apply(this,arguments)}}function v(G,F,E){if(G.attachEvent){G.attachEvent&&G.attachEvent("on"+F,E)}else{G.addEventListener(F,E,false)}}function x(G,F,E){if(G.detachEvent){G.detachEvent&&G.detachEvent("on"+F,E)}else{G.removeEventListener(F,E,false)}}function B(G){if(s.getElementsByClassName){return s.getElementsByClassName(G)}else{var E=[],H;var F=s.getElementsByTagName("*");var I=new RegExp("(^|\\s)"+G+"(\\s|$)");for(i=0,elmsLength=F.length;i<elmsLength;i++){var H=F[i];if(I.test(H.className)){E.push(H)}}}}function c(J){var E=false,G=true;function I(K){if(K.type==="readystatechange"&&s.readyState!=="complete"){return}x((K.type==="load"?m:s),K.type,I);if(!E){E=true;J()}}function H(){try{s.documentElement.doScroll("left")}catch(K){setTimeout(H,50);return}I("poll")}if(s.readyState==="complete"){J()}else{if(s.createEventObject&&s.documentElement.doScroll){try{G=!m.frameElement}catch(F){}if(G){H()}}v(s,"DOMContentLoaded",I);v(s,"readystatechange",I);v(m,"load",I)}}function p(E,F){if(k(s.documentElement,E)&&E.getBoundingClientRect().top<w+h){var H=E.getAttribute(j)?true:false;if(H){var G=E.getAttribute(j);if(G){E.style.backgroundImage="url("+G+")"}E.removeAttribute(j)}else{var G=E.getAttribute(e);E.onload=null;E.removeAttribute("onload");E.removeAttribute("height");E.removeAttribute("width");if(G){E.src=G}E.removeAttribute(e)}q[F]=null;return true}else{return false}}function C(){if(s.documentElement.clientHeight>=0){return s.documentElement.clientHeight}else{if(s.body&&s.body.clientHeight>=0){return s.body.clientHeight}else{if(m.innerHeight>=0){return m.innerHeight}else{return 0}}}}function u(){w=C()}function d(){var F=q.length,G,H=true;for(G=0;G<F;G++){var E=q[G];if(E!==null&&!p(E,G)){H=false}}if(H&&r){f()}}function f(){a=true;x(m,"resize",z);x(m,"resize",D);x(m,"scroll",D);x(m,"load",b)}function l(){a=false;v(m,"resize",z);v(m,"resize",D);v(m,"scroll",D)}function o(){var E=HTMLImageElement.prototype.getAttribute;HTMLImageElement.prototype.getAttribute=function(G){if(G==="src"){var F=E.call(this,e);return F||E.call(this,G)}else{return E.call(this,G)}}}var k=s.documentElement.compareDocumentPosition?function(F,E){return !!(F.compareDocumentPosition(E)&16)}:s.documentElement.contains?function(F,E){return F!==E&&(F.contains?F.contains(E):false)}:function(F,E){while((E=E.parentNode)){if(E===F){return true}}return false};function A(G,H,F){var E;if(H){if(Array.prototype.indexOf){return Array.prototype.indexOf.call(H,G,F)}E=H.length;F=F?F<0?Math.max(0,E+F):F:0;for(;F<E;F++){if(F in H&&H[F]===G){return F}}}return -1}}(this,document))};</script> <style type="text/css">.diwali-banner{display: block} .diwali-banner .line1, .diwali-banner .line2{text-align:center; max-width:9999px;width:600px;} .diwali-banner:before{display:none\9} .diwali-banner .ribbon {display:none} .dotdpreview:before{display:none} .diwali-banner .line1 {font-size:20px;} .newMenu .header-topbar .header-links .link-list>li>a{overflow:visible} .header-mobile-text{margin:1px 0}</style> </head> <body class="CartPage "> <div class="newMenu fkart fksk-body line "> <div id="fk-header" class="minHeader "> <div id="fk-mainhead-id" class="jank-fixed "> <div class="header-topbar"> <div class="header-content"> <div class="unit size1of6 "> <a href="/" class="fk-text-center fk-font-11 logo-img-link fllt"> <img width="149px" height="38px" class="logo-img retina-img" data-retina="https://img1a.flixcart.com//www/prod/images/flipkart_india_retina-9eba8425.png" src="https://img1a.flixcart.com//www/prod/images/flipkart_india-b1a41241.png" alt="Flipkart.com: Online Shopping India" title="Online Shopping India | Flipkart.com" /> </a> </div> <div class="unitExt mainUnit"> <div class="header-links unitExt"> <ul class="link-list fk-font-12 fk-text-center required-tracking" data-tracking-id="ch_vn"> <li class="no-border greeting-link"> <a class="no-border" href="https://www.flipkart.com/account/">Hi loyal customer... !</a> <ul class="account-dropdown"> <li><a href="https://www.flipkart.com/account/?link=home_account">Account</a></li> <li> <a href="https://www.flipkart.com/account/orders?link=home_orders">Orders</a> </li> <li> <a href="https://www.flipkart.com/account/wallet?link=home_wallet">Wallet</a> </li> <li> <a href="https://www.flipkart.com/wishlist?link=home_wishlist">Wishlist</a> </li> <li><a href="https://www.flipkart.com/account/ebookslibrary">eBooks Library</a></li> <li><a href="https://www.flipkart.com/profile?link=home_review">Reviews
+ & Ratings</a></li> <li> <a href="https://www.flipkart.com/recommendations?link=home_recommendations">Recommendations</a> </li> <li> <a href="https://www.flipkart.com/account/subscriptions?link=home_preferences">Email
+ Preferences</a></li> <li><a href="http://www.flipkart.com/account/flipkartfirst?__FK=V2f496d7332d73eb7e623a75e4393cfe69d1t19uGUlKmsbvTf6nDkWGV%2BLEHjwpRs7jkFZT4hWFp8Paq5ksYc2%2F4J53zSFVMOa5uEdwfNZCxUdrCIbPqyydN1Tt4DbTDjHooSsBaFid4%2FsreEkxdJiv2lOao%2F8Ex6f2BEP">Flipkart First</a></li> <li><a href="http://www.flipkart.com/account/logout?__FK=V2f496d7332d73eb7e623a75e4393cfe69d1t19uGUlKmsbvTf6nDkWGV%2BLEHjwpRs7jkFZT4hWFp8Paq5ksYc2%2F4J53zSFVMOa5uEdwfNZCxUdrCIbPqyydN1Tt4DbTDjHooSsBaFid4%2FsreEkxdJiv2lOao%2F8Ex6f2BEP">Logout</a></li> </ul> </li> </ul> </div> <div class="fk-searchbar unit"> <form onsubmit="return submitSearchBarForm();" method="GET" id="fk-header-search-form" action="/search" autocomplete="off"> <div class="search-bar-wrap"> <div class="search-bar"> <div class="unit search-bar-text-wrap size5of6"> <span class="search-bar-icon"></span> <input type="text" name="q" class="search-bar-text fk-font-13 ac_input"
+ placeholder="Search for a product, category or brand"
+ value="" id="fk-top-search-box" autofocus='autofocus' x-webkit-speech/> <select id="fk-search-select" class="search-select" onchange="javascript:selectMItem(this);"> <option value="search.flipkart.com" data-storeId="search.flipkart.com" data-storeurl="/search" displaystr="All Categories">All Categories</option> <option value="2oq" data-storeId="2oq" data-storeurl="/clothing/pr" displaystr="Clothing">Clothing</option> <option value="osp" data-storeId="osp" data-storeurl="/footwear/pr" displaystr="Footwear">Footwear</option> <option value="tyy" data-storeId="tyy" data-storeurl="/mobiles-accessories/pr" displaystr="Mobiles &amp; Accessories">Mobiles &amp; Accessories</option> <option value="6bo" data-storeId="6bo" data-storeurl="/computers/pr" displaystr="Computers">Computers</option> <option value="reh" data-storeId="reh" data-storeurl="/bags-wallets-belts/pr" displaystr="Watches, Bags & Wallets">Watches, Bags & Wallets</option> <option value="jek" data-storeId="jek" data-storeurl="/cameras-accessories/pr" displaystr="Cameras &amp; Accessories">Cameras &amp; Accessories</option> <option value="bks" data-storeId="bks" data-storeurl="/books/pr" displaystr="Books, Pens & Stationery">Books, Pens & Stationery</option> <option value="j9e" data-storeId="j9e" data-storeurl="/home-kitchen/pr" displaystr="Home &amp; Kitchen">Home &amp; Kitchen</option> <option value="t06" data-storeId="t06" data-storeurl="/beauty-and-personal-care/pr" displaystr="Beauty & Personal Care">Beauty & Personal Care</option> <option value="4rr" data-storeId="4rr" data-storeurl="/gaming/pr" displaystr="Games &amp; Consoles">Games &amp; Consoles</option> <option value="ckf" data-storeId="ckf" data-storeurl="/tv-audio-video-players/pr" displaystr="TVs & Video Players">TVs & Video Players</option> <option value="6bo,ord" data-storeId="6bo,ord" data-storeurl="/computers/audio-players/pr" displaystr="Home Audio &amp; MP3 Players">Home Audio &amp; MP3 Players</option> <option value="4kt" data-storeId="4kt" data-storeurl="/music-movies-posters/pr" displaystr="Music, Movies & Posters">Music, Movies & Posters</option> <option value="kyh" data-storeId="kyh" data-storeurl="/baby-care/pr" displaystr="Baby Care & Toys">Baby Care & Toys</option> <option value="dep" data-storeId="dep" data-storeurl="/sports-fitness/pr" displaystr="Sports & Fitness">Sports & Fitness</option> <option value="ixq" data-storeId="ixq" data-storeurl="/ebooks/pr" displaystr="eBooks">eBooks</option> </select> <input type="hidden" id="as" value="off" name="as"/> <input type="hidden" id="as-show" value="off" name="as-show"/> </div> <div class="unit search-bar-submit-wrap size1of6"> <input type="submit" class="search-bar-submit fk-font-13 fk-font-bold"
+ value="Search"/> <input type='hidden' name='otracker' id="searchTracker" value='start'/> </div> </div> </div> </form> <fieldset> <input type='hidden' name='ab_buk' id='ab_buk' value="new-new"/> <input type="hidden" id="fk-vertical-auto-suggestions" value="search.flipkart.com" name="vertical" /> </fieldset> <script type="text/javascript+fk-onload"> <!--<script type="text/javascript">--> 
+ var searchOptionUrls = {"all":"\/all","clothing":"\/clothing","footwear":"\/footwear","mobiles":"\/mobiles","computers":"\/computers","leather-travel":"\/lifestyle\/bags-belts-luggage","cameras":"\/cameras","books-stationeries":"\/books-stationeries","homeappliance":"\/home-appliances","health-and-beauty":"\/health-and-beauty","games":"\/games","tv-video":"\/tv-video","audioplayers":"\/audio","movies-music":"\/movies-music","babycaretoys":"\/babycaretoies","sports-fitness":"\/sports-fitness","ebooks":"\/ebooks"};
+ function submitSearchBarForm(){
+ var sb = $(".search-bar-text"),
+ val = sb.val(); 
+ val = val.replace(/^[ ]+/g, "").replace(/[ ]+$/g, "");
+ if(val === "" || val.toLowerCase() == "Search for a product, category or brand"){
+ sb.focus();
+ return false;
+ }
+ return true;
+ }; 
+ function formatItem(row) {
+ return row;
+ }; 
+ $(".search-bar-text")
+ .keypress(function(event){
+ if(event.keyCode == 13 && $("#fk-vertical-auto-suggestions").val()!="search.flipkart.com"){
+ var vertical = $("#fk-vertical-auto-suggestions").val();
+ window.location.href = searchOptionUrls[vertical];
+ return;
+ }
+ }).autocomplete("/s", {
+ max: 12,
+ minChars: 1,
+ scroll: false,
+ selectFirst: false,
+ formatItem:formatItem,
+ delay: 100 });
+</script> </div> </div> <div class="cls"></div> </div> </div> <div class="fclear"></div> </div> </div> <script type="text/javascript+fk-onload">
+ ;(function() {
+ $(".track-order-details-required").on("click", function() {
+ var omniData = {}; 
+ omniData.prop52 = "TrackOrder:" + (s.eVar4 === "logout" ? "LoggedOut" : "LoggedIn");
+ FKART.omni.customEvent("Track Order", omniData);
+ });
+ })();
+</script> <div id= "fk-mainbody-id" class="fk-mainbody fksk-mainbody "> <div class=" fk-content fksk-content enable-compare" > <!-- left side bands --> <script type="text/javascript+fk-window-onload">
+ (function(){
+ var $slideContainer = $(".pbo-sticky .slider-container"),
+ $slides = $(".pbo-sticky .slider-container .slides"),
+ count = $slides.length,
+ enabledNext = false,
+ enabledPrev = false;
+ 
+ var slideNext = function(){
+ 
+ enabledNext = true;
+ $currentSlide = $('.pbo-sticky .current-slide');
+ index = $slides.index($currentSlide);
+ if (index < count) {
+ $currentSlide.removeClass('current-slide');
+ $($slides[index + 1]).addClass('current-slide');
+ if(index === (count-2)){
+ enabledNext = false;
+ $('.pbo-sticky .right-slide').removeClass('active').addClass('inactive').off('click.next');
+ }
+ 
+ if(!enabledPrev){
+ enabledPrev = true;
+ $('.pbo-sticky .left-slide').removeClass('inactive').addClass('active').on('click.next',slidePrev);
+ }
+ }
+ };
+ 
+ var slidePrev = function(){
+ 
+ enabledPrev = true;
+ $currentSlide = $('.pbo-sticky .current-slide');
+ index = $slides.index($currentSlide);
+ if (index > 0) {
+ $currentSlide.removeClass('current-slide');
+ $($slides[index - 1]).addClass('current-slide');
+ if(index === 1){
+ enabledPrev = false;
+ $('.pbo-sticky .left-slide').removeClass('active').addClass('inactive').off('click.next');
+ }
+ if(!enabledNext){
+ enabledNext = true;
+ $('.pbo-sticky .right-slide').removeClass('inactive').addClass('active').on('click.next',slideNext);
+ }
+ }
+ }
+ 
+ var changeSlide = function(){ if(enabledNext){slideNext();}else{slidePrev();}}
+ 
+ var attachHandlers = function(autoSlide){
+ if($slides.length > 1){
+ $('.pbo-sticky .right-slide').on('click.next',slideNext);
+ if(autoSlide){
+ enabledNext = true;
+ setInterval(function(){
+ changeSlide();
+ },5000);
+ }
+ }
+ }
+ 
+ $(".pbo-sticky .ribbon").on("click",function(){
+ $(".pbo-sticky").delay(200).toggleClass("collapsed");
+ });
+ attachHandlers(true);
+ }());
+(function(){
+ var $pboText = $(".pbo-text");
+ $pboText.on("click",function(){
+ $(".offer-details").slideToggle();
+ $pboText.toggleClass("pbo-collapsed");
+ });
+ }());
+</script> <div class="cart cartpage " id="cartPage"> <div class="cart_contents newvd"> <div class="cartpage-tabs"> <div id="cartpage-cart-tab" content-loaded="1" class="tab selected">
+ Cart <span id="cartCount">(2)</span> </div> <div id="cartpage-digital-tab" content-loaded="0" class="tab ">
+ Digital Cart <span id="digitalCartCount">
+ (0)</span> </div> <div class="fclear"></div> </div> <div id="cartpage-cart-tab-content" class=" cartpage-tab-content cp-tab-content"> <table width="100%" cellpadding="0" cellspacing="0" class="cart-table"> <thead class="fk-uppercase cart-head"> <tr> <td class="product-info head-cell" colspan="2"> <table width="100%" cellspacing="0" cellpadding="0"> <tr> <td class="image-cell">&nbsp;</td> <td class="item-cell"><span class="lpadding10">Item</span></td> </tr> </table> </td> <td class="qty-cell head-cell lborder">Qty</td> <td class="price-cell head-cell lborder">Price</td> <td class="head-cell delivery-cell lborder">Delivery Details</td> <td class="head-cell subtotal-cell lborder">Subtotal</td> </tr> </thead> <tbody class="cart-body"> <tr class="item-row"> <td colspan="2" class="product-info fk-position-relative"> <table width="100%" height="100%" cellspacing="0" cellpadding="0"> <tr > <td class="cell image-cell"> <div class='carty-image fk-text-center fk-position-relative'> <a href="/digiflip-2-1-channel-40w-ps045-backlit-speaker-with-remote-control-usb-support-4000-watt-pmpo/p/itmdyhfgvuhd95zj?pid=ACCDYHFEGGZBQ7RV" class='img-link'> <img onerror="img_onerror(this);" data-error-url="https://img1a.flixcart.com//acc/other_accessories.jpg" height="75" width="75" data-src="https://img1a.flixcart.com/image/speaker/laptop-speaker/7/r/v/digiflip-ps045-75x75-imae2ecwm3gpyhpq.jpeg" src="data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////Ly8v///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw==" onload="lzld(this)" class="product-image" alt="DigiFlip 2.1 Channel 40W PS045 Backlit Speake..."></img> </a> </div> </td> <td class="cell item-cell"> <span class="title fk-font-14">DigiFlip 2.1 Channel 40W PS045 Backlit Speake...</span> <p class='fk-font-11 font-color-medium'>Black, 2.1 Channel</p> <div class="line tmargin5 fk-font-12">
+ Seller: <span class="fk-bold">WS Retail</span>
+ | <span class="fa-icon"></span> </div> </td> </tr> <tr> <td colspan="2" class="product-action fk-font-11"> <div class="unit fk-uppercase fk-italic return-policy"> <span class="tick fk-inline-block"></span> <span class="applicable-policy">30 Days Replacement</span> <a class="detail fk-replace-policy" data-policy-type="30_day_replacement">?</a> </div> <div class="unitExt tmargin2"> <a class="cart-wishlist-add fk-inline-block fk-uppercase" data-cart_domain="physical" data-listing_id="LSTACCDYHFEGGZBQ7RVJGWQSV">Save for Later</a> <span class="dot-separator fk-bold fk-position-relative">.</span> <a class="cart-remove-item fk-inline-block fk-uppercase" data-cart_domain="physical" data-listing_id="LSTACCDYHFEGGZBQ7RVJGWQSV" title="Remove Item">Remove</a> </div> </td> </tr> </table> </td> <td class="cell qty-cell carty-changeQuantity"> <form class="cart-qty-form" action="" data-listing_id="LSTACCDYHFEGGZBQ7RVJGWQSV"> <div class="cart-qty-panel-read fk-text-center"> <a class='cart-qty'
+ onclick="$(this).closest('form').addClass('change').find('.cart-qty-textbox').val($(this).html()).select().end().find('.cart-qty-panel-write').removeAttr('style');">1</a> </div> <div class="cart-qty-panel-write fk-hidden"> <input type="text" maxlength="3" value="1" class="cart-qty-textbox fk-input"/> <br/> <a class="cart-qty-save fk-font-small"
+ onclick="$(this).closest('form').submit();return false;">Save</a> </div> </form> </td> <td class="cell price-cell"> <div class="carty-price line"> <!-- Printing all delivery details here --> <div class=" fk-font-14 price">Rs. 2,799</div> </div> </td> <td class="cell delivery-cell"> <div class="fk-fontlight"> <strong class="fk-font-14 offer-color">Free</strong> </div> <p class='fk-font-11 fk-fontlight tmargin5'>Delivered in 2 business days.</p><div class='fk-inline fk-font-11 fk-fontlight tmargin5'>Faster options may be available during checkout. <div class="lstaccdyhfeggzbq7rvjgwqsv fk-inline-block"> <a class="fd-help-icon fk-underline fk-font-small">[?]</a> <div class="fk-hidden delivery-help-message"> <div class="line bmargin20"> <div class="unit size1of2 imageBox fk-text-center"> <span class="express promise_logo"></span> </div> <div class="lastUnit lpadding15 text-section"> <div class="bmargin5"><span class="fk_delivery"></span>Get it by <span class="fk-bold">Tomorrow</span></div> <div class="bmargin5"><span class="fk_cutoff"></span>11 hrs 07 mins left</div> <div class="bmargin5"><span class="fk_ruppee"></span>90 per item</div> </div> </div> <div class="line fk-text-center"> <div class="border-top">Enter Pincode and Check Availability in your city</div> <div class="border-top">Choose this delivery option in checkout</div> <a class="border-top" target="_blank" href="/faster-delivery">More about Faster Delivery Options</a> </div> </div> </div> </div> </td> <td class="cell subtotal-cell fk-font-14 fk-bold price">
+ Rs. 2,799 </td> </tr> <tr class="item-row"> <td colspan="2" class="product-info fk-position-relative"> <table width="100%" height="100%" cellspacing="0" cellpadding="0"> <tr > <td class="cell image-cell"> <div class='carty-image fk-text-center fk-position-relative'> <a href="/jack-jones-slim-fit-men-s-trousers/p/itmdzqz7kghwvqds?pid=TRODZQZ7NZGZY7DY" class='img-link'> <img onerror="img_onerror(this);" data-error-url="https://img1a.flixcart.com/img/small-default.jpg" height="75" width="75" data-src="https://img1a.flixcart.com/image/trouser/7/d/y/1665304khaki-jack-jones-30-75x75-imae2t2vfccqhpyy.jpeg" src="data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////Ly8v///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw==" onload="lzld(this)" class="product-image" alt="Jack &amp; Jones Slim Fit Men\'s Trousers"></img> </a> </div> </td> <td class="cell item-cell"> <span class="title fk-font-14">Jack & Jones Slim Fit Men's Trousers</span> <p class='tmargin5 fk-font-11 font-color-medium'>Size: 32, Size: 32/34</p> <div class="line tmargin5 fk-font-12">
+ Seller: <span class="fk-bold">Arrow Retail </span>
+ | <span class="fa-icon"></span> </div> <ul class="promo-info-div fk-hidden"> <li class="line tmargin5 bmargin5"> <div class="unit size4of5"> <p class="promo-info fk-inline-block fk-font-small">
+ +&nbsp;
+ 
+ Men's Clothing - EXTRA 25% OFF. No minimum cart value.
+ 
+ </p> </div> <div class="lastUnit text_right">Rs. 699</div> </li> </ul> <div class='tmargin5'> <a class="fk-inline-block offer-applied btn btn-white btn-small offer-ttp"> <span class="offer-color fk-bold">OFFERS:</span> 1
+ applied
+ </a> <script type="text/javascript+fk-onload">
+ (function() {
+ $('.offer-ttp').each(function() {
+ var $this = $(this).removeClass('offer-ttp');
+ var inside = "body";
+ if($this.closest('.cart-dialog').length){
+ if($this.closest('td').hasClass('digital')) {
+ inside = ".cart-dialog .digital_cart_contents";
+ }
+ else {
+ inside = ".cart-dialog .cart_contents";
+ }
+ } 
+ var offerTooltip = new FKART.ui.Tooltip({
+ message : $this.closest('td').find('.promo-info-div'),
+ nearElement : $this,
+ align : "left",
+ showCloseIcon: false,
+ cssClass: "offer-ttp-info above-all ",
+ destroyTimeout: 0,
+ inside: inside
+ });
+ $this.bind({mouseenter:function(e) {
+ e.stopPropagation();
+ offerTooltip.show();
+ }});
+ offerTooltip.getContainer().bind('mouseleave', function() {
+ offerTooltip.hide();
+ });
+ });
+ })();
+ </script> </div> </td> </tr> <tr> <td colspan="2" class="product-action fk-font-11"> <div class="unit fk-uppercase fk-italic return-policy"> <span class="tick fk-inline-block"></span> <span class="applicable-policy">30 Days Exchange</span> <a class="detail fk-replace-policy" data-policy-type="30_day_exchange">?</a> </div> <div class="unitExt tmargin2"> <a class="cart-wishlist-add fk-inline-block fk-uppercase" data-cart_domain="physical" data-listing_id="LSTTRODZQZ7NZGZY7DYRUGHX0">Save for Later</a> <span class="dot-separator fk-bold fk-position-relative">.</span> <a class="cart-remove-item fk-inline-block fk-uppercase" data-cart_domain="physical" data-listing_id="LSTTRODZQZ7NZGZY7DYRUGHX0" title="Remove Item">Remove</a> </div> </td> </tr> </table> </td> <td class="cell qty-cell carty-changeQuantity"> <form class="cart-qty-form" action="" data-listing_id="LSTTRODZQZ7NZGZY7DYRUGHX0"> <div class="cart-qty-panel-read fk-text-center"> <a class='cart-qty'
+ onclick="$(this).closest('form').addClass('change').find('.cart-qty-textbox').val($(this).html()).select().end().find('.cart-qty-panel-write').removeAttr('style');">1</a> </div> <div class="cart-qty-panel-write fk-hidden"> <input type="text" maxlength="3" value="1" class="cart-qty-textbox fk-input"/> <br/> <a class="cart-qty-save fk-font-small"
+ onclick="$(this).closest('form').submit();return false;">Save</a> </div> </form> </td> <td class="cell price-cell"> <div class="carty-price line"> <!-- Printing all delivery details here --> <div class="bmargin5 fk-font-14 price">Rs. 2,097</div> <div class="popup_recent_our_price fk-font-11 fk-fontlight bmargin5 fk-italic">Selling Price: Rs. 2,796</div> <div class="offer-color fk-font-11 line fk-italic">Offer Savings: Rs. 699</div> </div> </td> <td class="cell delivery-cell"> <div class="fk-fontlight"> <strong class="fk-font-14 offer-color">Free</strong> </div> <p class='fk-font-11 fk-fontlight tmargin5'>Delivered in 2 business days.</p><div class='fk-inline fk-font-11 fk-fontlight tmargin5'>Faster options may be available during checkout. <div class="lsttrodzqz7nzgzy7dyrughx0 fk-inline-block"> <a class="fd-help-icon fk-underline fk-font-small">[?]</a> <div class="fk-hidden delivery-help-message"> <div class="line bmargin20"> <div class="unit size1of2 imageBox fk-text-center"> <span class="express promise_logo"></span> </div> <div class="lastUnit lpadding15 text-section"> <div class="bmargin5"><span class="fk_delivery"></span>Get it by <span class="fk-bold">Tomorrow</span></div> <div class="bmargin5"><span class="fk_cutoff"></span>11 hrs 07 mins left</div> <div class="bmargin5"><span class="fk_ruppee"></span>90 per item</div> </div> </div> <div class="line fk-text-center"> <div class="border-top">Enter Pincode and Check Availability in your city</div> <div class="border-top">Choose this delivery option in checkout</div> <a class="border-top" target="_blank" href="/faster-delivery">More about Faster Delivery Options</a> </div> </div> </div> </div> </td> <td class="cell subtotal-cell fk-font-14 fk-bold price">
+ Rs. 2,097 </td> </tr> </tbody> </table> <script type="text/javascript+fk-onload">
+ (function() {
+ $('.js-quantity-restriction').each(function() {
+ var $this = $(this).removeClass('.js-quantity-restriction');
+ var inside = "body";
+ if($this.closest('.cart-dialog').length){
+ inside = ".cart-dialog .cart_contents";
+ }else if($this.closest('.cart-body-cont').length){
+ inside = ".cart-body-cont";
+ }
+ var offerTooltip = new FKART.ui.Tooltip({
+ message : $this.parent().find('.js-quantity-restriction-message'),
+ nearElement : $this,
+ align : "middle",
+ showCloseIcon: false,
+ cssClass: "above-all",
+ destroyTimeout: 0,
+ inside: inside
+ });
+ $this.bind({mouseenter:function(e) {
+ e.stopPropagation();
+ offerTooltip.show();
+ }});
+ $this.bind('mouseleave', function() {
+ offerTooltip.hide();
+ });
+ });
+ })();
+</script> <script type='text/javascript+fk-onload'> 
+if(window.cart){
+ cart.nonWSRSellerPresent = false;
+ } 
+$(document).on('click',".fk-replace-policy", function(){
+ var $this = $(this),
+ $policy = $(this).attr('data-policy-type'),
+ replaceTooltip = new FKART.ui.Tooltip({
+ message: $('.return-info-wrap .'+$policy).clone(),
+ cssClass : "fk-returns-help-tooltip ",
+ showCloseIcon : true
+ });
+ replaceTooltip.show($this);
+ setTimeout(function(){
+ $(document).click(function(e){
+ if(!($(e.target).is('.fk-returns-help-tooltip *'))){
+ replaceTooltip.destroy();
+ }
+ });
+ },100);
+});
+</script> <div class="cart-footer"> <div class="cart-item-summary padding10 text_right fk-font-21"> <div class="offer-savings fk-font-14 fk-inline-block">
+ Total Savings: <span class="offer-color">Rs. 699</span> </div> <span class="cart_light_grey lmargin80">Estimated Total:</span> <span class="fk-bold">Rs. 4,896</span> </div> <div class="line tmargin20 bmargin20 lmargin10 rmargin10"> <div class="unit pincode-cont"> <div class="cart-pincode-checker"> <div class="pincode-checker location-availability"> <div class="pincode-empty-err fk-err-all hidden"> <span>Please enter pincode</span> </div> <div class="panel-form fk-inline-block" style=""> <form action="" onsubmit="return false;" class="pincode-checker-form"> <input autocomplete="off"
+ type="text"
+ maxlength="6"
+ name="pincode"
+ placeholder="Enter Your Pincode"
+ value=""
+ class="pincode-textbox fk-input"
+ required="required"
+ data-label="Pincode"
+ /> <input type="submit" class="btn btn-blue" value="Check"/> </form> </div> <div class="panel-static fk-inline-block vmiddle" style="display:none "> <span class="location-avail-res fk-inline-block vmiddle"></span> <span class="pincode-description">Shipping to:</span> <span class="pincode-text"></span> <a onclick="$(this).parent().hide().prev().show()" class='pincodeChangeBtn fk-underline'>Change</a> </div> <div class="pincode-errorMsg"></div> </div> </div> <script type="text/javascript+fk-onload">
+ (function(){
+ var $container = $('.cart-footer'),
+ pinCodeChecker = new FKART.widgets.PinCodeChecker({
+ container: $container,
+ tooltipConfig:{
+ inside: ".cart-footer"
+ }
+ }); 
+ pinCodeChecker.setCallBack(function(pincode){
+ LOADER && LOADER.show();
+ $.ajax({
+ url: '/xhr/setSessionPincode',
+ dataType: "json",
+ data: {
+ "pincode": pincode
+ },
+ success: function(response){
+ FKART.omni.customEvent("Cart Pincode", {events: "event15"});
+ if(response.status == "ok" && response.status != null){
+ $('#cartPage').trigger("loadCart");
+ } else{
+ new FKART.Alert({body: response.msg, destroy_on_close: true, width: 500});
+ }
+ }, error: function(){
+ new FKART.Alert({body: "Something went wrong. Please try again later", destroy_on_close: true, width: 500})
+ }
+ });
+ });
+ $container.parent().find('.find-del-charge').each(function(){
+ var $this = $(this);
+ $this[0].onclick = null;
+ $this.bind('click', function(){
+ pinCodeChecker.focus();
+ });
+ });
+ })();
+ </script> </div> <div class="unitExt"> <div class="fk-inline-block"> <button class="btn btn-white fk-font-14 continue-button close">&lt; Continue Shopping</button> </div> <div class="fk-inline-block lmargin10"> 
+ <form id="view-cart-form" method="post" action="https://www.flipkart.com/checkout/init"> <button type="submit" onclick="payClicked()" class="btn btn-orange btn-buy-big place-order-button no-underline" onkeypress="return payClicked()" >Place Order</button> <input type="hidden" name="domain" value="physical"/> </form> </div> </div> <div class="fclear"></div> </div> </div> <div class="fk-hidden"><style type="text/css"> 
+ .question-answer { 
+ padding: 10px 0; 
+ } 
+ .question-answer:first-child { 
+ padding-top: 0; 
+ } 
+ .question-answer:last-child { 
+ padding-bottom: 0; 
+ } 
+ .question-answer .answer-wrap .fk-ul-disc { 
+ padding: 0 0 0 15px; 
+ } 
+ .question { 
+ font-size: 12px;; 
+ } 
+</style> <div class="return-info-wrap"> <div class="10_day_replacement"> <table class="bmargin10 policy-table"> <tbody> <tr> <th class="fk-bold">Validity</th> <th class="fk-bold">Covers</th> <th class="fk-bold">Type Accepted</th> </tr> <tr> <td>10 days from delivery</td> <td>Damaged, Defective, Item not as described</td> <td>Replacement</td> </tr> </tbody> </table> <div class="question-answer"> <div class="answer-wrap"> <div class="answer"> 
+ If you have received a damaged or defective product or it is not as described, you can get a 
+ replacement within 10 days of delivery at no extra cost. 
+ </div> </div> </div> <div class="question-answer"> <h3 class="question">When does this guarantee not apply?</h3> <div class="answer-wrap"> <div class="answer"> <div>The guarantee does not extend to:</div> <ul class="fk-ul-disc"> <li>Digital products and services (Flipkart eBooks &amp; music downloads).</li> <li>Innerwear, Lingerie, Socks, Jewellery Freebies and Clothing Freebies</li> <li>Damages due to misuse of product or Incidental damage due to malfunctioning of product.</li> <li>Any consumable item which has been used or installed.</li> <li>Products with tampered or missing serial numbers.</li> <li>Items that are returned without original packaging, freebies or accessories.</li> <li>Any damage / defect which are not covered under the manufacturer's warranty.</li> <li>Made-to-order/Custom Jewellery.</li> </ul> </div> </div> </div> <div class="more-answers"> <span>More answers in our</span> <a href="/s/help/cancellation-returns" target="_blank" class="fk-underline">Cancellations &amp; Returns 
+ &#x00bb;</a> </div> </div> <div class="30_day_replacement"> <table class="bmargin10 policy-table"> <tbody> <tr> <th class="fk-bold">Validity</th> <th class="fk-bold">Covers</th> <th class="fk-bold">Type Accepted</th> </tr> <tr> <td>30 days from delivery</td> <td>Damaged, Defective, Item not as described</td> <td>Replacement</td> </tr> </tbody> </table> <div class="question-answer"> <div class="answer-wrap"> <div class="answer"> 
+ If you have received a damaged or defective product or it is not as described, you can get a 
+ replacement within 30 days of delivery at no extra cost. 
+ </div> </div> </div> <div class="question-answer"> <h3 class="question">When does this guarantee not apply?</h3> <div class="answer-wrap"> <div class="answer"> <div>The guarantee does not extend to:</div> <ul class="fk-ul-disc"> <li>Digital products and services (Flipkart eBooks &amp; music downloads).</li> <li>Innerwear, Lingerie, Socks, Jewellery Freebies and Clothing Freebies</li> <li>Damages due to misuse of product or Incidental damage due to malfunctioning of product.</li> <li>Any consumable item which has been used or installed.</li> <li>Products with tampered or missing serial numbers.</li> <li>Items that are returned without original packaging, freebies or accessories.</li> <li>Any damage / defect which are not covered under the manufacturer's warranty.</li> <li>Made-to-order/Custom Jewellery.</li> </ul> </div> </div> </div> <div class="more-answers"> <span>More answers in our</span> <a href="/s/help/cancellation-returns" target="_blank" class="fk-underline">Cancellations &amp; Returns 
+ &#x00bb;</a> </div> </div> <div class="10_day_exchange"> <table class="bmargin10 policy-table"> <tbody> <tr> <th class="fk-bold">Validity</th> <th class="fk-bold">Covers</th> <th class="fk-bold">Type Accepted</th> </tr> <tr> <td>10 days from delivery</td> <td>Exchange for colors and size, Does not fit</td> <td>Exchange</td> </tr> </tbody> </table> <div class="question-answer"> <div class="answer-wrap"> <div class="answer"> 
+ If you have received a damaged or defective product or it is not as described, you can get an 
+ exchange within 10 days of delivery at no extra cost. 
+ </div> </div> </div> <div class="question-answer"> <h3 class="question">When does this guarantee not apply?</h3> <div class="answer-wrap"> <div class="answer"> <div>The guarantee does not extend to:</div> <ul class="fk-ul-disc"> <li>Digital products and services (Flipkart eBooks &amp; music downloads).</li> <li>Innerwear, Lingerie, Socks, Jewellery Freebies and Clothing Freebies</li> <li>Damages due to misuse of product or Incidental damage due to malfunctioning of product.</li> <li>Any consumable item which has been used or installed.</li> <li>Products with tampered or missing serial numbers.</li> <li>Items that are returned without original packaging, freebies or accessories.</li> <li>Any damage / defect which are not covered under the manufacturer's warranty.</li> <li>Made-to-order/Custom Jewellery.</li> </ul> </div> </div> </div> <div class="more-answers"> <span>More answers in our</span> <a href="/s/help/cancellation-returns" target="_blank" class="fk-underline">Cancellations &amp; Returns 
+ &#x00bb;</a> </div> </div> <div class="30_day_exchange"> <table class="bmargin10 policy-table"> <tbody> <tr> <th class="fk-bold">Validity</th> <th class="fk-bold">Covers</th> <th class="fk-bold">Type Accepted</th> </tr> <tr> <td>30 days from delivery</td> <td>Exchange for colors and size, Does not fit</td> <td>Exchange</td> </tr> </tbody> </table> <div class="question-answer"> <div class="answer-wrap"> <div class="answer"> 
+ If you have received a damaged or defective product or it is not as described, you can get an 
+ exchange within 30 days of delivery at no extra cost. 
+ </div> </div> </div> <div class="question-answer"> <h3 class="question">When does this guarantee not apply?</h3> <div class="answer-wrap"> <div class="answer"> <div>The guarantee does not extend to:</div> <ul class="fk-ul-disc"> <li>Digital products and services (Flipkart eBooks &amp; music downloads).</li> <li>Innerwear, Lingerie, Socks, Jewellery Freebies and Clothing Freebies</li> <li>Damages due to misuse of product or Incidental damage due to malfunctioning of product.</li> <li>Any consumable item which has been used or installed.</li> <li>Products with tampered or missing serial numbers.</li> <li>Items that are returned without original packaging, freebies or accessories.</li> <li>Any damage / defect which are not covered under the manufacturer's warranty.</li> <li>Made-to-order/Custom Jewellery.</li> </ul> </div> </div> </div> <div class="more-answers"> <span>More answers in our</span> <a href="/s/help/cancellation-returns" target="_blank" class="fk-underline"> 
+ Cancellations &amp; Returns&#x00bb; 
+ </a> </div> </div> </div></div> <script type="text/javascript+fk-onload">
+ (function(w){
+ var fixedFooter = function(){
+ var cartHeaderHeight = $('#fk-mainhead-id').height() + $('.cartpage-tabs').height(),isFixed;
+ var thresholdLimit = cartHeaderHeight + 250;
+ var viewPortHeight = $(w).height();
+ var selectedTab = $('.cartpage-tabs .tab.selected').attr('id');
+ var activeCartView = (selectedTab == 'cartpage-digital-tab') ? '#cartpage-digital-tab-content' : '#cartpage-cart-tab-content';
+ var $cartFooter = $('.cart-footer', '.cartpage '+activeCartView);
+ var $cartTable = $('.cart-table', activeCartView);
+ var $cartSummary = $('.cart-summary', activeCartView);
+ var $tabContent = $(activeCartView);
+ if(viewPortHeight < thresholdLimit){
+ return;
+ }
+ ($(w).scrollTop() + viewPortHeight == $(document).height()) ? $cartFooter.removeClass('fixed') : $cartFooter.addClass('fixed');
+ var pageHeight = cartHeaderHeight + $cartTable.height() + $cartSummary.height();
+ if(pageHeight > (viewPortHeight - $cartFooter.height())){
+ $tabContent.addClass('fixed');
+ isFixed=true;
+ } else{
+ isFixed=false;
+ $tabContent.removeClass('fixed');
+ }
+ $tabContent.trigger("fixed", {"isFixed":isFixed});
+ }
+ fixedFooter();
+ $(w).scroll(throttle(fixedFooter, 10));
+ })(window)
+</script> </div> <div id="cartpage-digital-tab-content" class="hidden cartpage-tab-content cp-tab-content"> </div> </div> </div> <div id="falertbox"></div> <div class="line trustBar"> <div class="unit size1of2"><ul class="unit trust-banners"> <li class="banner line begin"> <span class="trust-icon secure-icon unit fk-inline-block"></span> <p class="lastUnit"> <span class="fk-uppercase highlightBold">Secure</span><br> <span class="fk-font-9 fk-uppercase">Payments</span> </p> </li> <li class="banner"> <span class="trust-icon op-icon unit fk-inline-block"></span> <p class="lastUnit"> <span class="fk-uppercase highlightBold">Original</span><br> <span class="fk-font-10 fk-uppercase">Products</span> </p> </li> <li class="banner"> <span class="trust-icon returns-icon unit fk-inline-block"></span> <p class="lastUnit free-returns"> <span class="fk-font-8 fk-uppercase">Free &amp; easy</span><br> <span class="fk-uppercase highlightBold">Returns</span> </p> </li> 
+<li class="banner end">
+ <img src="https://marketplace.Singtel.com/Content/Default/Images/apps/54.jpg" height="50px" width="60px"></li>
+ </ul> <div class="cls"></div> </div> <div class="lastUnit"> <p class="text_right rpadding20 fk-font-14"><strong>Need Help to Buy?</strong><br /> <span class="fk-font-12"><strong>1800 1080 1800</strong> or
+ <a class="fk-underline" href="https://www.flipkart.com/s/contact">Contact us</a></span> </p> </div> <script type="text/javascript+fk-window-onload">
+ (function(){
+ var parent = $(".cp-tab-content").closest(".fk-mainbody");
+ $('.cp-tab-content').bind("fixed", function(e, d){
+ var temp = d["isFixed"], hasClass=parent.hasClass("fixedBarAdded");
+ if(temp && !hasClass){
+ parent.addClass("fixedBarAdded"); 
+ } else if(!temp && hasClass){
+ parent.removeClass("fixedBarAdded");
+ } 
+ });
+ })();
+ </script> </div> <div class="line fk-footer-policy fk-text-center"> <div class="tpadding5"> <span><span class="policies-title boldtext">Policies:</span> <a href="/s/terms">Terms of use</a> | <a href="/s/paymentsecurity">Security</a> | <a
+ href="/s/privacypolicy">Privacy</a> | <a
+ href="https://seller.flipkart.com/fiv">Infringement</a></span> <span class="fk-footet-cr">&copy; 2007-2015 <span>Flipkart.com.</span></span> </div> </div> <!-- right side bands --> </div> </div> <!--25da3d73-0658-4279-812f-10db8c65673a--> </div> </div> <div id="login-signup-dialog" class="line hidden"> <div id="login-message" class="hidden"></div> <div>For security reasons, please re-confirm your password.</div> <div class="line"> <div class="size1of2 unit fk-signin"> <div id="login-dialog"> <div class="fk-font-bold fk-font-big bmargin10">Login</div> <div class="bd main-panel"> <div id="login_tiny_help_message" class="fk-hidden fk-err-all"></div> <form id="login-form" target="login-signup-iframe" method="post" action="https://www.flipkart.com/account/loginIframe" name="login-form"> <div class="line rw"> <div class="unit size1of4 lf"> <label for="login_email_id" class="fk-label">Email</label> </div> <div class="unit size3of4 lastUnit rt">
+ amaresh.mourya@gmail.com <input type="hidden" name="email" id="login_email_id" value="amaresh.mourya@gmail.com"/> </div> </div> <div class="line rw"> <div class="unit size1of4 lf"> <label for="login_password" class="fk-label" >Password</label> </div> <div class="unit size3of4 lastUnit rt"> <input type="password" class="fk-input" name="password" id="login_password"/> <input type="hidden" name="password_hash" id="login_password_hash"/> </div> </div> <div class="line rw"> <div class="unit size1of4 lf"> <div id="login-loader" class="fk-text-center">&nbsp;</div> </div> <div class="lastUnit size3of4"> <input type="hidden" name="__FK" value="V2f496d7332d73eb7e623a75e4393cfe69d1t19NZl53KtYFdETR0VpaxA47U3NtnS24hvH2e3SdqjtoJFNDvUS484rBKes/7BUuvxRH1hKwrxZPoENZMuLlktCnecjAcDvmK/fNKArO3MsNC8WAD1BjXI536NW8fIg8F0S"/> <input class="btn btn-blue" type="submit" value="Login"/> <a class="fk-inline-block lpadding10" href="http://www.flipkart.com/account/logout" >Not You, Logout?</a> </div> </div> </form> <div id="frgt_passwd_suc" class="fk-hidden"></div> <div class="fk-frgt-paswd fk-hidden tmargin5" id="frgt_passwd_div" style="display: none;"> <div class="hdr">
+ Forgot your Password?
+ </div><span class="txt">Enter your Email Address here to receive a link to change
+ password.</span> <div id="login_tiny_help_message2" class="fk-hidden fk-err-all"></div> <div class="line rw"> <div class="unit size1of4 lf"> <label for="frgt_paswd_email_id" class="fk-label">Email</label> </div> <div class="unit size3of4 lastUnit rt"> <input type="text" class="fk-input" name="email" id="frgt_paswd_email_id" onkeypress=
+ "FKART.login.keyEventForgetPass(event)"/> </div> </div> <div class="line"> <div class="unit size1of4 lf">
+ &nbsp;
+ </div> <div class="unit size3of4 lastUnit rt"> <button class="btn btn-blue" onclick="FKART.login.forgotPassword();">Send Email</button> </div> </div> </div> </div> </div> <div id="signup-dialog" class="hidden"> <div class="fk-font-bold fk-font-big bmargin10">New User? Sign Up</div> <div class="main-panel"> <div id="signup_tiny_help_message" class="fk-hidden fk-err-all"></div> <form id="signup-form" target="login-signup-iframe" method="post" action="https://www.flipkart.com/account/signupIframe" name="signup-form"> <div class="line rw"> <div class="unit size1of3 lf"> <label for="signup-email" class="fk-label">Email Address</label> </div> <div class="unit size3of4 lastUnit rt"> <input type="text" class="fk-input" name="signup-email" autocomplete="on" id="signup-email"/> </div> </div> <div class="line rw"> <div class="unit size1of3 lf"> <label for="signup-password" class="fk-label" >Password</label> </div> <div class="unit size3of4 lastUnit rt"> <input type="password" class="fk-input" name="signup-password" id="signup-password"/> <input type="hidden" name="signup-password_hash" id="signup-password_hash"/> </div> </div> <div class="line rw"> <div class="unit size1of3 lf"> <label for="signup-repeat-password" class="fk-label" >Repeat Password</label> </div> <div class="unit size3of4 lastUnit rt"> <input type="password" class="fk-input" name="repeat-password" id="signup-repeat-password"/> </div> </div> <div class="line rw"> <div class="unit size1of3 lf"> <div id="signup-loader" class="fk-text-center">&nbsp;</div> </div> <div class="unit size2of3"> <input type="hidden" name="__FK" value="V2f496d7332d73eb7e623a75e4393cfe69d1t19NZl53KtYFdETR0VpaxA47U3NtnS24hvH2e3SdqjtoJFNDvUS484rBKes/7BUuvxRH1hKwrxZPoENZMuLlktCnecjAcDvmK/fNKArO3MsNC8WAD1BjXI536NW8fIg8F0S"/> <input class="btn btn-green" type="submit" value="Sign Up Now!"/> </div> </div> </form> <div class="line">
+ Already have an account? <a href="javascript:;" class="login-button">Login</a>!
+ </div> </div> </div> </div> <div class="divider-or unit"> </div> <div id="social-dialog" class="social-connect unit"> <div class="line"> <div class="tmargin25"> <span class="social-signin-message fk-font-bold">Sign in with </span> <div class="social-connect-loader fk-inline-block lmargin10"></div> </div> <div class="line tmargin10"> <a href="/sc/fb_login?__Fk=V2f496d7332d73eb7e623a75e4393cfe69d1t190Lr759sFgbJ4FzGTCQ4YRRrNbaaJdnUFch8aWXomF66NT%2BEMjm9SNEOGlzGJf762kZnyt0wQGH58IDC6%2BtNbvb4JG2ribwZXl1kULG1k5krLn59FaYyhQYbQVSd4r%2BxE&rd=http://www.flipkart.com%2Fviewcart" class="fk-button-social fb"></a> </div> <div class="line tmargin10"> <a href="/sc/google_login?__Fk=V2f496d7332d73eb7e623a75e4393cfe69d1t190Lr759sFgbJ4FzGTCQ4YRRrNbaaJdnUFch8aWXomF66NT%2BEMjm9SNEOGlzGJf762kZnyt0wQGH58IDC6%2BtNbvb4JG2ribwZXl1kULG1k5krLn59FaYyhQYbQVSd4r%2BxE&rd=http://www.flipkart.com%2Fviewcart" class="fk-button-social google"></a> </div> <div id="fb-root"></div> </div> </div> </div> </div> <iframe class="hidden" width="0" height="0" id="login-signup-iframe" name="login-signup-iframe"></iframe> </div> <script type="text/javascript">
+ if(typeof window.lzld_find != "undefined")
+ {
+ window.lzld_find();
+ }
+ </script> <script type="text/javascript">var s_account='flipkart-prd';</script> <script type="text/javascript">
+ window.cartOptions = {
+ height: 502,
+ width: 922,
+ css: "newvd cart-dialog "
+ }
+ </script> <script type="text/javascript">
+ window.cartThrottleOptions = {
+ enable : false
+ }
+ </script> <script type="text/javascript" src="https://img1a.flixcart.com//www/prod/js/new-lib-f3a4b81.js"></script><script type="text/javascript"> addOnload(function(){
+ FKART.utils.runOnload();
+ });
+ addWindowOnload(function(){
+ FKART.utils.runWindowOnload();
+ });
+ require_module.init({"spc":{"url":"https://img1a.flixcart.com//www/prod/js/spc-c295d8f.js"},"ie-fix":{"url":"https://img1a.flixcart.com//www/prod/js/ie-fix-862239a.js"},"spc-omniture":{"url":"https://img1a.flixcart.com//www/prod/js/spc-omniture-6f89a5c.js"},"doodle":{"url":"https://img1a.flixcart.com//www/prod/js/doodle-48f211d.js"},"alliances":{"url":"https://img1a.flixcart.com//www/prod/js/alliances-b19a692.js"},"static":{"url":"https://img1a.flixcart.com//www/prod/js/static-20e8e39.js"},"affiliate":{"url":"https://img1a.flixcart.com//www/prod/js/affiliate-8accb9e.js"},"affiliate_date_picker":{"url":"https://img1a.flixcart.com//www/prod/js/affiliate_date_picker-1722b57.js"},"jqueryExpose":{"url":"https://img1a.flixcart.com//www/prod/js/jqueryExpose-c59a9be.js"},"affiliate_multiproduct_banner":{"url":"https://img1a.flixcart.com//www/prod/js/affiliate_multiproduct_banner-ed699a7.js"},"affwidget":{"url":"https://img1a.flixcart.com//www/prod/js/affwidget-6ecd57e.js"},"addthis":{"url":"https://img1a.flixcart.com//www/prod/js/addthis-b50efb7.js"},"boomerang":{"url":"https://img1a.flixcart.com//www/prod/js/boomerang-c43a47e.js"},"carousel":{"url":"https://img1a.flixcart.com//www/prod/js/carousel-e1e730d.js"},"slick-carousel":{"url":"https://img1a.flixcart.com//www/prod/js/slick-carousel-9f6387c.js"},"image-carousel":{"url":"https://img1a.flixcart.com//www/prod/js/image-carousel-6997c2f.js"},"zoom":{"url":"https://img1a.flixcart.com//www/prod/js/zoom-6310b9b.js"},"co":{"url":"https://img1a.flixcart.com//www/prod/js/co-20e8a16.js"},"self-serve-lib":{"url":"https://img1a.flixcart.com//www/prod/js/self-serve-lib-f501138.js"},"returns":{"url":"https://img1a.flixcart.com//www/prod/js/returns-90b47ae.js"},"neft-update":{"url":"https://img1a.flixcart.com//www/prod/js/neft-update-c6fac74.js"},"my-orders":{"url":"https://img1a.flixcart.com//www/prod/js/my-orders-a940546.js"},"contact-us":{"url":"https://img1a.flixcart.com//www/prod/js/contact-us-e575933.js"},"scheduled-delivery":{"url":"https://img1a.flixcart.com//www/prod/js/scheduled-delivery-1c2a7fb.js"},"NDR":{"url":"https://img1a.flixcart.com//www/prod/js/NDR-3c0526d.js"},"resend-egv":{"url":"https://img1a.flixcart.com//www/prod/js/resend-egv-40b2334.js"},"browser-warning":{"url":"https://img1a.flixcart.com//www/prod/js/browser-warning-222b5e6.js"},"logger":{"url":"https://img1a.flixcart.com//www/prod/js/logger-f588a66.js"},"fkselectbox":{"url":"https://img1a.flixcart.com//www/prod/js/fkselectbox-b69970e.js"},"ugc":{"url":"https://img1a.flixcart.com//www/prod/js/ugc-fcbca06.js"},"digital":{"url":"https://img1a.flixcart.com//www/prod/js/digital-c03a8d4.js"},"ads":{"url":"https://img1a.flixcart.com//www/prod/js/ads-2883e46.js"},"browse":{"url":"https://img1a.flixcart.com//www/prod/js/browse-eb7de29.js"},"newbrowse":{"url":"https://img1a.flixcart.com//www/prod/js/newbrowse-e58773e.js"},"buyingGuidePage":{"url":"https://img1a.flixcart.com//www/prod/js/buyingGuidePage-b8e5964.js"},"lifestylebrowse":{"url":"https://img1a.flixcart.com//www/prod/js/lifestylebrowse-a73640e.js"},"searchrating":{"url":"https://img1a.flixcart.com//www/prod/js/searchrating-d2fd77c.js"},"multivariant":{"url":"https://img1a.flixcart.com//www/prod/js/multivariant-69acbf2.js"},"phone-sales":{"url":"https://img1a.flixcart.com//www/prod/js/phone-sales-9aecf36.js"},"touch":{"url":"https://img1a.flixcart.com//www/prod/js/touch-44ec0b4.js"},"mobile-tracking":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-tracking-fce1dde.js"},"mobile-tracking-old":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-tracking-old-c037ed5.js"},"mobile-cart":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-cart-a0ae2a6.js"},"mobile-lego":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-lego-550745c.js"},"operaCart":{"url":"https://img1a.flixcart.com//www/prod/js/operaCart-bd5e5ad.js"},"cloud":{"url":"https://img1a.flixcart.com//www/prod/js/cloud-c6b58c2.js"},"mobile-clp-tracking":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-clp-tracking-12ac4f5.js"},"mobile-combo":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-combo-af2c182.js"},"mobile-prexo":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-prexo-9b8462c.js"},"mobile-ccemi":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-ccemi-8fa36db.js"},"mobile-subscription":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-subscription-e2f4676.js"},"mobile-gateway-redirection":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-gateway-redirection-6e6c1d2.js"},"mobile-delivery":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-delivery-ba9e3a6.js"},"mobile-carousel":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-carousel-8b3157d.js"},"mobile-return":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-return-79d776e.js"},"mobile-order-details":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-order-details-6462deb.js"},"mobile-contactus":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-contactus-fd4dbc1.js"},"mobile-rpd":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-rpd-5b98c59.js"},"mobile-buying-guide":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-buying-guide-7c216f1.js"},"myaccount":{"url":"https://img1a.flixcart.com//www/prod/js/myaccount-f6efd59.js"},"lib":{"url":"https://img1a.flixcart.com//www/prod/js/lib-83762ba.js"},"main":{"url":"https://img1a.flixcart.com//www/prod/js/main-6c3c11e.js"},"homepage":{"url":"https://img1a.flixcart.com//www/prod/js/homepage-b61aaf1.js"},"new-lib":{"url":"https://img1a.flixcart.com//www/prod/js/new-lib-f3a4b81.js"},"productpage":{"url":"https://img1a.flixcart.com//www/prod/js/productpage-64cae39.js"},"sideBands":{"url":"https://img1a.flixcart.com//www/prod/js/sideBands-b491779.js"},"360view":{"url":"https://img1a.flixcart.com//www/prod/js/360view-2b82daa.js"},"survey":{"url":"https://img1a.flixcart.com//www/prod/js/survey-3438d7f.js"},"sweepstake":{"url":"https://img1a.flixcart.com//www/prod/js/sweepstake-f0fb475.js"},"reviewsummary":{"url":"https://img1a.flixcart.com//www/prod/js/reviewsummary-7cea0e0.js"},"epub":{"url":"https://img1a.flixcart.com//www/prod/js/epub-20be931.js"},"ebooks-preview":{"url":"https://img1a.flixcart.com//www/prod/js/ebooks-preview-3a160de.js"},"reader":{"url":"https://img1a.flixcart.com//www/prod/js/reader-e9eff23.js"},"sample-reader":{"url":"https://img1a.flixcart.com//www/prod/js/sample-reader-6083f91.js"},"lib-dwnld":{"url":"https://img1a.flixcart.com//www/prod/js/lib-dwnld-d41d8cd.js"},"default":{"url":"https://img1a.flixcart.com//www/prod/js/default-217213d.js"},"sticky":{"url":"https://img1a.flixcart.com//www/prod/js/sticky-bb08944.js"},"browse-pincode":{"url":"https://img1a.flixcart.com//www/prod/js/browse-pincode-a943ff1.js"},"widget-modules":{"url":"https://img1a.flixcart.com//www/prod/js/widget-modules-c6ea472.js"},"ndd-launch-page":{"url":"https://img1a.flixcart.com//www/prod/js/ndd-launch-page-c911cc5.js"},"parallax":{"url":"https://img1a.flixcart.com//www/prod/js/parallax-33ce43d.js"},"mobile-sample-reader":{"url":"https://img1a.flixcart.com//www/prod/js/mobile-sample-reader-82b2247.js"},"openxAds":{"url":"https://img1a.flixcart.com//www/prod/js/openxAds-3c2d8bf.js"},"jet-planes":{"url":"https://img1a.flixcart.com//www/prod/js/jet-planes-eeb5f51.js"},"legoProductPage":{"url":"https://img1a.flixcart.com//www/prod/js/legoProductPage-ad8d30a.js"},"fozLego":{"url":"https://img1a.flixcart.com//www/prod/js/fozLego-5b8c975.js"},"foz-intrigue":{"url":"https://img1a.flixcart.com//www/prod/js/foz-intrigue-cfb3e36.js"},"booksCLP":{"url":"https://img1a.flixcart.com//www/prod/js/booksCLP-809f80f.js"},"close-button":{"url":"https://img1a.flixcart.com//www/prod/js/close-button-b319954.js"},"lego-tracking":{"url":"https://img1a.flixcart.com//www/prod/js/lego-tracking-24330ec.js"}}, {"HPS":{"url":["https://img1a.flixcart.com//www/prod/HPS-2f7a5ab6-nogz.css"]},"HPSLite":{"url":["https://img1a.flixcart.com//www/prod/HPSLite-e8168a63-nogz.css"]},"HomePage":{"url":["https://img1a.flixcart.com//www/prod/HomePage-56210dfc-nogz.css"]},"BrowsePage":{"url":["https://img1a.flixcart.com//www/prod/BrowsePage-27d0b1bd-nogz.css"]},"ProductPage":{"url":["https://img1a.flixcart.com//www/prod/ProductPage-4acf951f-nogz.css"]},"LifeStyle":{"url":["https://img1a.flixcart.com//www/prod/LifeStyle-19befed7-nogz.css"]},"BG":{"url":["https://img1a.flixcart.com//www/prod/BG-1237a16a-nogz.css"]},"ads":{"url":["https://img1a.flixcart.com//www/prod/ads-ec23c353-nogz.css"]},"aff":{"url":["https://img1a.flixcart.com//www/prod/aff-d713ea01-nogz.css"]},"grid":{"url":["https://img1a.flixcart.com//www/prod/grid-0a93a7ed-nogz.css"]},"alliances":{"url":["https://img1a.flixcart.com//www/prod/alliances-7dd10fd8-nogz.css"]},"basic":{"url":["https://img1a.flixcart.com//www/prod/basic-afe19d32-nogz.css"]},"diwali-phase2":{"url":["https://img1a.flixcart.com//www/prod/diwali-phase2-ee2fce38-nogz.css"]},"diwali-phase3":{"url":["https://img1a.flixcart.com//www/prod/diwali-phase3-e14e0fbf-nogz.css"]},"diwali-phase4":{"url":["https://img1a.flixcart.com//www/prod/diwali-phase4-713b14d2-nogz.css"]},"website-theming":{"url":["https://img1a.flixcart.com//www/prod/website-theming-9872a483-nogz.css"]},"ebooks-anniversary":{"url":["https://img1a.flixcart.com//www/prod/ebooks-anniversary-9c40c5f3-nogz.css"]},"ebooks":{"url":["https://img1a.flixcart.com//www/prod/ebooks-a941534c-nogz.css"]},"ebooks-preview":{"url":["https://img1a.flixcart.com//www/prod/ebooks-preview-c9ffb7f4-nogz.css"]},"sample-reader":{"url":["https://img1a.flixcart.com//www/prod/sample-reader-3cd08504-nogz.css"]},"reader":{"url":["https://img1a.flixcart.com//www/prod/reader-155059d7-nogz.css"]},"help":{"url":["https://img1a.flixcart.com//www/prod/help-b6f3a2ff-nogz.css"]},"flyte-anniversary":{"url":["https://img1a.flixcart.com//www/prod/flyte-anniversary-619a0b95-nogz.css"]},"self-publishing":{"url":["https://img1a.flixcart.com//www/prod/self-publishing-fc901eba-nogz.css"]},"mpl":{"url":["https://img1a.flixcart.com//www/prod/mpl-a5e3aa49-nogz.css"]},"mobile":{"url":["https://img1a.flixcart.com//www/prod/mobile-80fad66b-nogz.css"]},"others":{"url":["https://img1a.flixcart.com//www/prod/others-87473e17-nogz.css"]},"spc":{"url":["https://img1a.flixcart.com//www/prod/spc-7732276f-nogz.css"]},"self-serve":{"url":["https://img1a.flixcart.com//www/prod/self-serve-d4c2f786-nogz.css"]},"others-extended":{"url":["https://img1a.flixcart.com//www/prod/others-extended-4300af51-nogz.css"]},"contact-us":{"url":["https://img1a.flixcart.com//www/prod/contact-us-0834a09a-nogz.css"]},"order-return":{"url":["https://img1a.flixcart.com//www/prod/order-return-a515c5f4-nogz.css"]},"neft-update":{"url":["https://img1a.flixcart.com//www/prod/neft-update-064f461d-nogz.css"]},"thin":{"url":["https://img1a.flixcart.com//www/prod/thin-82cdc83e-nogz.css"]},"touch":{"url":["https://img1a.flixcart.com//www/prod/touch-150a9e6c-nogz.css"]},"mw-theme":{"url":["https://img1a.flixcart.com//www/prod/mw-theme-9396a0be-nogz.css"]},"mobile-app":{"url":["https://img1a.flixcart.com//www/prod/mobile-app-2dfb4659-nogz.css"]},"mobile-windows-app":{"url":["https://img1a.flixcart.com//www/prod/mobile-windows-app-6fae9b43-nogz.css"]},"mobilestore":{"url":["https://img1a.flixcart.com//www/prod/mobilestore-8e670a6e-nogz.css"]},"mobile-website":{"url":["https://img1a.flixcart.com//www/prod/mobile-website-07527a3f-nogz.css"]},"mobile-lego":{"url":["https://img1a.flixcart.com//www/prod/mobile-lego-d9610588-nogz.css"]},"mobile-website-theme":{"url":["https://img1a.flixcart.com//www/prod/mobile-website-theme-29857771-nogz.css"]},"mobile-sample-reader":{"url":["https://img1a.flixcart.com//www/prod/mobile-sample-reader-f1dfa239-nogz.css"]},"mobile-opera":{"url":["https://img1a.flixcart.com//www/prod/mobile-opera-a68b9637-nogz.css"]},"touch-vday":{"url":["https://img1a.flixcart.com//www/prod/touch-vday-2b7a1578-nogz.css"]},"affwidget":{"url":["https://img1a.flixcart.com//www/prod/affwidget-5e560bb9-nogz.css"]},"lego":{"url":["https://img1a.flixcart.com//www/prod/lego-7e4be181-nogz.css"]},"sweepstake":{"url":["https://img1a.flixcart.com//www/prod/sweepstake-f4cd3b28-nogz.css"]},"blogs":{"url":["https://img1a.flixcart.com//www/prod/blogs-7246a6a0-nogz.css"]},"stores":{"url":["https://img1a.flixcart.com//www/prod/stores-568e4696-nogz.css"]},"arihant-store":{"url":["https://img1a.flixcart.com//www/prod/arihant-store-10644d83-nogz.css"]},"ack-store":{"url":["https://img1a.flixcart.com//www/prod/ack-store-726150c1-nogz.css"]},"bosch-store":{"url":["https://img1a.flixcart.com//www/prod/bosch-store-53738fc1-nogz.css"]},"chromeBook-store":{"url":["https://img1a.flixcart.com//www/prod/chromeBook-store-edc55ce0-nogz.css"]},"chromebook1-store":{"url":["https://img1a.flixcart.com//www/prod/chromebook1-store-11cdc2ff-nogz.css"]},"disney-store":{"url":["https://img1a.flixcart.com//www/prod/disney-store-d74178e2-nogz.css"]},"motorola-store":{"url":["https://img1a.flixcart.com//www/prod/motorola-store-2e6f7c9c-nogz.css"]},"motox-store":{"url":["https://img1a.flixcart.com//www/prod/motox-store-1eff8df0-nogz.css"]},"motoeLaunch-store":{"url":["https://img1a.flixcart.com//www/prod/motoeLaunch-store-ffe12b7f-nogz.css"]},"motog-store":{"url":["https://img1a.flixcart.com//www/prod/motog-store-901600f5-nogz.css"]},"flipkartFashion-store":{"url":["https://img1a.flixcart.com//www/prod/flipkartFashion-store-90316ffd-nogz.css"]},"moto-store":{"url":["https://img1a.flixcart.com//www/prod/moto-store-f0464972-nogz.css"]},"philipsHomePage-store":{"url":["https://img1a.flixcart.com//www/prod/philipsHomePage-store-84bbb041-nogz.css"]},"rajini-store":{"url":["https://img1a.flixcart.com//www/prod/rajini-store-10d46bb0-nogz.css"]},"scholastic-store":{"url":["https://img1a.flixcart.com//www/prod/scholastic-store-c01e2686-nogz.css"]},"valentine-store":{"url":["https://img1a.flixcart.com//www/prod/valentine-store-7b8b1269-nogz.css"]},"westland-store":{"url":["https://img1a.flixcart.com//www/prod/westland-store-49de2b8d-nogz.css"]},"westernDigital-store":{"url":["https://img1a.flixcart.com//www/prod/westernDigital-store-7d04949f-nogz.css"]},"philips-monetized":{"url":["https://img1a.flixcart.com//www/prod/philips-monetized-5ba91bc3-nogz.css"]},"beauty-store":{"url":["https://img1a.flixcart.com//www/prod/beauty-store-e143667e-nogz.css"]},"international-beauty-store":{"url":["https://img1a.flixcart.com//www/prod/international-beauty-store-b9aa5d96-nogz.css"]},"tangerine-store":{"url":["https://img1a.flixcart.com//www/prod/tangerine-store-8fcf0ff3-nogz.css"]},"adidas-store":{"url":["https://img1a.flixcart.com//www/prod/adidas-store-16295c27-nogz.css"]},"benetton-store":{"url":["https://img1a.flixcart.com//www/prod/benetton-store-16295c27-nogz.css"]},"jacknjones-store":{"url":["https://img1a.flixcart.com//www/prod/jacknjones-store-16295c27-nogz.css"]},"fashion-store":{"url":["https://img1a.flixcart.com//www/prod/fashion-store-91003669-nogz.css"]},"puma-store":{"url":["https://img1a.flixcart.com//www/prod/puma-store-5d8c2bfa-nogz.css"]},"kapsons-store":{"url":["https://img1a.flixcart.com//www/prod/kapsons-store-16295c27-nogz.css"]},"veromoda-store":{"url":["https://img1a.flixcart.com//www/prod/veromoda-store-16295c27-nogz.css"]},"lee-store":{"url":["https://img1a.flixcart.com//www/prod/lee-store-16295c27-nogz.css"]},"wedding-store":{"url":["https://img1a.flixcart.com//www/prod/wedding-store-9b8e4312-nogz.css"]},"ucb-store":{"url":["https://img1a.flixcart.com//www/prod/ucb-store-16295c27-nogz.css"]},"women-store":{"url":["https://img1a.flixcart.com//www/prod/women-store-d2f1235e-nogz.css"]},"women-store2":{"url":["https://img1a.flixcart.com//www/prod/women-store2-b7fa328b-nogz.css"]},"studentsZone-store":{"url":["https://img1a.flixcart.com//www/prod/studentsZone-store-6d931cbf-nogz.css"]},"philipsAquatouch-store":{"url":["https://img1a.flixcart.com//www/prod/philipsAquatouch-store-cb3d9327-nogz.css"]},"hpcartridges-store":{"url":["https://img1a.flixcart.com//www/prod/hpcartridges-store-75bb5ee1-nogz.css"]},"motoe-store":{"url":["https://img1a.flixcart.com//www/prod/motoe-store-79a0476b-nogz.css"]},"mens-store":{"url":["https://img1a.flixcart.com//www/prod/mens-store-83902791-nogz.css"]},"lifestyle-clp":{"url":["https://img1a.flixcart.com//www/prod/lifestyle-clp-e4f3830a-nogz.css"]},"books-clp":{"url":["https://img1a.flixcart.com//www/prod/books-clp-495e97ff-nogz.css"]},"children-clp":{"url":["https://img1a.flixcart.com//www/prod/children-clp-0dbdec6c-nogz.css"]},"academics-clp":{"url":["https://img1a.flixcart.com//www/prod/academics-clp-0dbb7259-nogz.css"]},"flipkart-first":{"url":["https://img1a.flixcart.com//www/prod/flipkart-first-2c47b72c-nogz.css"]},"launch-page":{"url":["https://img1a.flixcart.com//www/prod/launch-page-e4b01cfa-nogz.css"]},"error_pages":{"url":["https://img1a.flixcart.com//www/prod/error_pages-12b16ece-nogz.css"]},"books_launch_page":{"url":["https://img1a.flixcart.com//www/prod/books_launch_page-52436a10-nogz.css"]},"fifa-store":{"url":["https://img1a.flixcart.com//www/prod/fifa-store-5d80d7ba-nogz.css"]},"mobile-apps-page":{"url":["https://img1a.flixcart.com//www/prod/mobile-apps-page-89e1d8a1-nogz.css"]},"flipkart-cares":{"url":["https://img1a.flixcart.com//www/prod/flipkart-cares-2b9c0a7b-nogz.css"]},"dotdHp":{"url":["https://img1a.flixcart.com//www/prod/dotdHp-e3a6f635-nogz.css"]},"digiflip-store":{"url":["https://img1a.flixcart.com//www/prod/digiflip-store-04a68582-nogz.css"]},"value-store":{"url":["https://img1a.flixcart.com//www/prod/value-store-241cff5b-nogz.css"]},"mi-store":{"url":["https://img1a.flixcart.com//www/prod/mi-store-381065c0-nogz.css"]},"fastrack-store":{"url":["https://img1a.flixcart.com//www/prod/fastrack-store-1b8f9ad8-nogz.css"]},"rakhi-store":{"url":["https://img1a.flixcart.com//www/prod/rakhi-store-371d393d-nogz.css"]},"flipkart-advantage":{"url":["https://img1a.flixcart.com//www/prod/flipkart-advantage-b31acd32-nogz.css"]},"asus-store":{"url":["https://img1a.flixcart.com//www/prod/asus-store-977141fc-nogz.css"]},"kids-store":{"url":["https://img1a.flixcart.com//www/prod/kids-store-8fbca850-nogz.css"]},"legoBasic":{"url":["https://img1a.flixcart.com//www/prod/legoBasic-c4ab0ceb-nogz.css"]},"legoProductPage":{"url":["https://img1a.flixcart.com//www/prod/legoProductPage-3e17aa4e-nogz.css"]},"intrigue-store":{"url":["https://img1a.flixcart.com//www/prod/intrigue-store-2e4b9176-nogz.css"]},"foz-new":{"url":["https://img1a.flixcart.com//www/prod/foz-new-25c878f1-nogz.css"]},"foz-gosf":{"url":["https://img1a.flixcart.com//www/prod/foz-gosf-69b73f14-nogz.css"]},"diwali-intrigue":{"url":["https://img1a.flixcart.com//www/prod/diwali-intrigue-db29961a-nogz.css"]},"diwali-pbo":{"url":["https://img1a.flixcart.com//www/prod/diwali-pbo-5cf04e76-nogz.css"]},"diwali-leaderboard":{"url":["https://img1a.flixcart.com//www/prod/diwali-leaderboard-40b5682e-nogz.css"]},"plainReco":{"url":["https://img1a.flixcart.com//www/prod/plainReco-03d94b65-nogz.css"]},"watches-store":{"url":["https://img1a.flixcart.com//www/prod/watches-store-bbeae3b4-nogz.css"]},"console":{"url":["https://img1a.flixcart.com//www/prod/console-c9d2904b-nogz.css"]},"static":{"url":["https://img1a.flixcart.com//www/prod/static-799aa318-nogz.css"]}});
+ </script> <script type='text/javascript'>
+ FKART.secureDomain='https://www.flipkart.com';
+</script> <script type="text/javascript+fk-onload">
+ FKART.linkTracking.parse();
+</script> <script type='text/javascript'>FKART.LOGGEDIN = true;</script> <!-- Omniture code start --> <script type="text/javascript">
+ (function(){
+ var adBlockerDiv = document.createElement("div");
+ adBlockerDiv.className = "advertisement-right advertisement-right-rail advertisement-sidebar advertisement-space advertisement-sponsor advertisement-swimlane advertisement-tag advertisement-text advertisement-top advertisement-txt advertisement-wrapper advertisement1 advertisement300x250 advertisement468 advertisementBackground advertisementBannerVertical advertisementBar advertisementBlock advertisementBox advertisementCenterer";
+ adBlockerDiv.innerHTML = "advertisment";
+ adBlockerDiv.style.visibility = "hidden";
+ document.body.appendChild(adBlockerDiv);
+ if(adBlockerDiv.clientHeight == 0 || adBlockerDiv.offsetHeight == 0 || adBlockerDiv.clientWidth == 0 || adBlockerDiv.offsetWidth == 0) {
+ s.prop8 = "Ad Blocker Present"; 
+ }
+ else {
+ s.prop8 = "Ad Blocker Absent"; 
+ }
+ document.body.removeChild(adBlockerDiv); 
+ })();
+ </script> <script language="JavaScript" type="text/javascript">
+ if (typeof ozone_omn == 'object') {
+ for (var ozone_key in ozone_omn) {
+ s[ozone_key] = ozone_omn[ozone_key];
+ }
+ }
+ s.pageName = "View Cart";
+ s.eVar3 = "Cart";
+ s.eVar4 = "login:google";
+ s.eVar5 = "ACMRKVCMRNOK4X5KHHB0DHGKLNI5XFFD";
+ s.events = "scView";
+ s.prop43 = s.eVar4 + ":" + "FlipkartFirst_NotSubscribed"; s.eVar62 = "google_ads_disabled";
+ s.eVar54 = "Saveforlater_B";
+ s.eVar4 = "login:google";
+ s.eVar5 = "ACMRKVCMRNOK4X5KHHB0DHGKLNI5XFFD";
+ s.prop66 = 'TI142211768011936220392089474316048358224438495937966165112553258193'; 
+ var s_code=s.t();
+ if(s_code) {
+ var omniDiv = document.createElement("div");
+ omniDiv.innerHTML = s_code;
+ document.body.appendChild(omniDiv);
+ } 
+ //if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-');
+ </script> <noscript> <img width='1' height='1' border='0' alt='' src='http://flipkart-prd.112.2o7.net/b/ss/flipkart-prd/1/PHP-1.2/s585763013?AQB=1&ndh=1&t=29%2F0%2F2015%2012%3A51%3A15%204%20-330&ce=UTF-8&cdp=2&gn=View%20Cart&g=http%3A%2F%2Fwww.flipkart.com%2Fviewcart&cc=INR&AQE=1' /></noscript> <!-- Omniture code end --> <script type="text/javascript">
+ window.__FK = "V2f496d7332d73eb7e623a75e4393cfe69d1t19t8K6wa8q52gX32Cm1vTkvKfMuRFV0qggFstLJGq5RjL2YaHKOhypxL5YGtwKNbdtDR/yU5lU2pYPzbfGBrovSWZyXAWjCJ6J0ttp3jI07DSISGRgEDkXl7vnpVLNZ67I";
+ $.ajaxSetup({
+ data: {__FK:window.__FK} 
+ });
+</script> <script type="text/javascript+fk-window-onload">
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-2015996-1']);
+ _gaq.push(['_trackPageview']); 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+ </script> <!-- Begin comScore Tag --> <script type="text/javascript+fk-window-onload">
+ var _comscore = _comscore || [];
+ _comscore.push({ c1: "2", c2: "16935438" });
+ (function() {
+ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+ s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+ el.parentNode.insertBefore(s, el);
+ })();
+</script> <noscript> <img src="http://b.scorecardresearch.com/p?c1=2&c2=16935438&cv=2.0&cj=1" /> </noscript> <!-- End comScore Tag --> <!--[if lt IE 8]> <script type="text/javascript">
+ require_module.js("browser-warning");
+ </script> <![endif]--> <div class="aff-tracker fk-hidden"> <script class="ga-conv" type="text/javascript+fk-window-onload">
+ (function(){
+ (new Image()).src = "https://www.googleadservices.com/pagead/conversion/1017598645/?label=OkhfCNuA7AEQtaWd5QM&guid=ON&script=0";
+ })();
+</script> <script type="text/javascript+fk-window-onload">
+(function() {
+ try {
+ 
+ var Lastclick = false;
+ 
+ var viz = document.createElement("script");
+ viz.type = "text/javascript";
+ viz.async = true;
+ viz.src = ("https:" == document.location.protocol ?"https://in-tags.vizury.com" : "http://in-tags.vizury.com")+ "/analyze/pixel.php?account_id=VIZVRM857"; 
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(viz, s);
+ viz.onload = function() {
+ try {
+ pixel.parse(Lastclick);
+ } catch (i) {
+ }
+ };
+ viz.onreadystatechange = function() {
+ if (viz.readyState == "complete" || viz.readyState == "loaded") {
+ try {
+ pixel.parse(Lastclick);
+ } catch (i) {
+ }
+ }
+ };
+ } catch (i) {
+ }
+})();
+</script> <script type="text/javascript+fk-window-onload">
+ var customData = "";
+ 
+ customData = "&cd[pcat]=home-entertainment,audio-players,home-audio,speakers,clothing,men-s-clothing,trousers&cd[pname]=DigiFlip 2-1 Channel 40W PS045 Backlit Speaker-with Remote Control- USB Support- 4000 Watt PMPO,Jack - Jones Slim Fit Men-s Trousers&cd[value]=2799,2796&cd[brand]=DigiFlip,Jack & Jones";
+ 
+
+ (function(){
+ (new Image()).src = "https://www.facebook.com/tr?id=1469476963265313&ev=cartPage" + encodeURI(customData);
+ })();
+</script> <noscript> <div style="display:inline;"> <img height="1" width="1" style="border-style:none;" alt="" src="https://www.facebook.com/tr?id=1469476963265313&ev=cartPage"/> </div> </noscript> <script type="text/javascript+fk-window-onload">
+ var customData = "app_id=91577";
+ 
+ customData += "&type=user&name=add_to_cart";
+ var qty = "";
+ var value = "";
+ var sku = "";
+ var idx = 0;
+ 
+ qty += '&qty[' + idx + ']=1';
+ value += '&value[' + idx + ']=2799';
+ sku += '&sku['+ idx + ']=ACCDYHFEGGZBQ7RV';
+ idx++;
+ 
+ qty += '&qty[' + idx + ']=1';
+ value += '&value[' + idx + ']=2796';
+ sku += '&sku['+ idx + ']=TRODZQZ7NZGZY7DY';
+ idx++;
+ 
+ customData = customData + qty + value + sku;
+ (function(){
+ (new Image()).src = "//api.nanigans.com/event.php?" + encodeURI(customData);
+ })();
+ 
+
+</script> <script type="text/javascript+fk-window-onload" class="microad_blade_track"> <!-- Tracking tags -->
+ var microad_blade_gl = microad_blade_gl || { 'params' : new Array(), 'complete_map' : new Object() };
+ (function() {
+ var param = {'co_account_id' : '9583', 'group_id' : '', 'country_id' : '4', 'ver' : '2.1.0'};
+ microad_blade_gl.params.push(param);
+ var src = (location.protocol == 'https:')
+ ? 'https://d-cache.microadinc.com/js/blade_track_gl.js' : 'http://d-cache.microadinc.com/js/blade_track_gl.js';
+ var bs = document.createElement('script');
+ bs.type = 'text/javascript'; bs.async = true;
+ bs.charset = 'utf-8'; bs.src = src;
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(bs, s);
+ })(); 
+</script> <!-- Dynamic Re-targeting tags --> <script type="text/javascript+fk-window-onload">
+ (function() {
+ var ma = document.createElement('script'); ma.type = 'text/javascript'; ma.async = true;
+ ma.src = "//px.adadyn.com/script?adv_id=60";
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ma, s);
+ })();
+</script> </div> <script id="_webengage_script_tag" type="text/javascript+fk-window-onload">
+ var hideFeedbackForm = (typeof(jQuery)===typeof(Function)) && (jQuery("a img", ".openXSideBand").length>1 || jQuery("a img", ".openXHalfSideBand").length>1 || (window.adsTTL&&window.adsTTL.sideBandsExecuted));
+ if(!hideFeedbackForm){
+ window.webengageWidgetInit = window.webengageWidgetInit || function(){
+ webengage.init({
+ licenseCode:"~c2ab36d6"
+ }).onReady(function(){
+ webengage.feedback.render();
+ webengage.notification.render();
+ webengage.survey.render({
+ ruleData: {
+ "newHomePage" : "true"
+ },
+ data : {
+ "logged_in" : 'yes'
+ }
+ });
+ //Commenting the below code to work for page with other libraries
+ if(typeof jQuery !== 'undefined') {
+ jQuery(document).trigger("webengage.notifications");
+ }
+ });
+ }; 
+ (function(d){
+ var _we = d.createElement('script');
+ _we.type = 'text/javascript';
+ _we.async = true;
+ _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-3.0.js";
+ var _sNode = d.getElementById('_webengage_script_tag');
+ _sNode.parentNode.insertBefore(_we, _sNode);
+ })(document);
+ }
+</script> <div class="loader"> <div class="loader-body large"> <div class="msg">Loading ...</div> </div> <div class="loader-overlay"></div> </div> <div class="hidden" id="go-top">
+ TOP <div class='css-arrow arrow-border'></div><div class='css-arrow arrow-top'></div> </div> </body> </html> <script type="text/javascript+fk-onload">
+(function(w){
+ function updateCartCount(pc, dc){
+ $("#cartCount").html((typeof pc != 'undefined' && pc != null) ? "("+pc+")" : "");
+ $("#digitalCartCount").html((typeof dc != 'undefined' && dc != null)? "("+dc+")" : "");
+ }
+ function ajaxError(){
+ LOADER.hide();
+ new FKART.Alert({body:"Your request has a problem, please try again.", destroy_on_close:true, width:500});
+ } 
+ function deleteFromCart(edition_id, cart_domain) {
+ LOADER.show();
+ ajaxRequest('POST', '/xhr/deleteFromCart', {eid:edition_id, cart_domain: cart_domain, __FK_ID:__FK}, {
+ success:function(data) {
+ FKART.omni.customEvent("Cart Deletion", {events:"scRemove"});
+ LOADER.hide();
+ if(cart_domain == 'digital'){
+ $('#cartpage-digital-tab-content').html(data.html);
+ }else{
+ $('#cartpage-cart-tab-content').html(data.html);
+ }
+ FKART.utils.runOnload();
+ updateCartCount(data.item_count, data.digital_item_count);
+ },
+ error:function(msg, data) {
+ ajaxError();
+ }
+ });
+ } 
+ function moveToWishlistFromCart(edition_id, cart_domain) {
+ LOADER.show();
+ ajaxRequest('POST', '/xhr/moveToWishList', {eid:edition_id,__FK_ID:__FK, cart_domain: cart_domain}, {
+ success:function(data) {
+ FKART.omni.customEvent("Add To Wishlist", {events:"event21"});
+ LOADER.hide();
+ if(cart_domain == 'digital'){
+ $('#cartpage-digital-tab-content').html(data.html);
+ }else{
+ $('#cartpage-cart-tab-content').html(data.html);
+ }
+ FKART.utils.runOnload();
+ updateCartCount(data.item_count, data.digital_item_count);
+ },
+ error:function(msg, data) {
+ ajaxError();
+ }
+ });
+ } 
+ function changeCartQty(changes) {
+ LOADER.show();
+ ajaxRequest('POST', '/xhr/changeQuantity', {eid:changes.listing_id,count:changes.quantity,__FK_ID:__FK}, {
+ success:function(data) {
+ LOADER.hide();
+ $('#cartpage-cart-tab-content').html(data.html);
+ FKART.utils.runOnload();
+ updateCartCount(data.item_count, data.digital_item_count);
+ },
+ error:function(msg, data) {
+ LOADER.hide();
+ $(".cart-qty-panel-write").removeAttr("style");
+ if (msg == 'Inventory check failed') { 
+ new FKART.Alert({body:"The quantity for the item has been revised due to restrictions at our end.<br/> You can continue to place the order for the revised quantity. (You may place another separate order for remaining quantity, with revised delivery period)", destroy_on_close:true, width:500});
+ } else {
+ ajaxError();
+ }
+ }
+ });
+ } 
+ function getCartDetail(cart_domain){
+ var $tab = (cart_domain == 'physical') ? $('#cartpage-cart-tab') : $('#cartpage-digital-tab'),
+ $container = (cart_domain == 'physical') ? $('#cartpage-cart-tab-content') : $('#cartpage-digital-tab-content');
+ if(parseInt($tab.attr('content-loaded')) || $tab.attr('loading'))
+ return;
+ $tab.attr('loading',1);
+ $container.html(getLoader());
+ ajaxRequest('POST', '/xhr/getCartDetail', {'cart_domain': cart_domain}, {
+ success:function(data) {
+ $tab.attr('content-loaded', 1);
+ $container.html(data.html);
+ FKART.utils.runOnload();
+ updateCartCount(data.item_count, data.digital_item_count);
+ $(window.cart).trigger("loaded");
+ },
+ error:function(msg, data) {
+ $tab.removeAttr('loading');
+ msg || (msg = "Internal server error. Please reload the page and try again later.")
+ $container.html(FKART.cart.errorMsg(msg));
+ }
+ });
+ } 
+ cart_bind_qty_events("#cartpage-cart-tab-content", changeCartQty);
+ $(".cartpage-tab-content").on('click','.cart-remove-item',function() {
+ deleteFromCart($(this).attr("data-listing_id"), $(this).attr("data-cart_domain"));
+ });
+ $(".cartpage-tab-content").on('click', ".cart-wishlist-add", function(){
+ moveToWishlistFromCart($(this).attr("data-listing_id"), $(this).attr("data-cart_domain"));
+ });
+ $('.to-fade').delay(12000).slideUp('slow'); 
+ $(".cartpage-tabs").tabs()
+ .bind("tabChange", function(ev, tab){
+ if(window.ttCollection)window.ttCollection.forEach(function(tt){tt.hide();});
+ getCartDetail(tab.id=="cartpage-digital-tab" ? 'digital' : 'physical');
+ }); 
+
+ $(".cartpage").on('click','.continue-button',function(){window.history.back();});
+ $("#cartPage").bind("loadCart", function(){
+ ajaxRequest('POST', '/xhr/getCart', {}, {
+ success:function(data) {
+ LOADER.hide();
+ $('#cartpage-cart-tab-content').html(data.html);
+ FKART.utils.runOnload();
+ updateCartCount(data.item_count, data.digital_item_count);
+ },
+ error:function(msg, data) {
+ LOADER.hide();
+ new FKART.Alert({body:"Something went wrong, please try again later.", destroy_on_close:true, width:500});
+ }
+ });
+ }); 
+ w.updateCartCount = updateCartCount;
+ })(window);
+</script> <script class="ga-conv" type="text/javascript+fk-window-onload">
+ (function(){
+ 
+ (new Image()).src = "//googleads.g.doubleclick.net/pagead/viewthroughconversion/1017598645/?value=0&label=5BlXCLOpwQMQtaWd5QM&guid=ON&script=0&data=" + encodeURIComponent("pagetype=cart;prodid=ACCDYHFEGGZBQ7RV,TRODZQZ7NZGZY7DY;value=2799,2796;brand=DigiFlip,Jack & Jones;pcat=home-entertainment,audio-players,home-audio,speakers,clothing,men-s-clothing,trousers;pname=DigiFlip 2-1 Channel 40W PS045 Backlit Speaker-with Remote Control- USB Support- 4000 Watt PMPO,Jack - Jones Slim Fit Men-s Trousers");
+ 
+ })();
+</script> <script class="ga-conv" type="text/javascript+fk-window-onload">
+ (function(){
+ 
+ (new Image()).src = "//googleads.g.doubleclick.net/pagead/viewthroughconversion/1008984980/?value=0&label=eJWICIydxgMQlMeP4QM&guid=ON&script=0&data=" + encodeURIComponent("pagetype=cart;prodid=ACCDYHFEGGZBQ7RV,TRODZQZ7NZGZY7DY;value=2799,2796;brand=DigiFlip,Jack & Jones;pcat=home-entertainment,audio-players,home-audio,speakers,clothing,men-s-clothing,trousers;pname=DigiFlip 2-1 Channel 40W PS045 Backlit Speaker-with Remote Control- USB Support- 4000 Watt PMPO,Jack - Jones Slim Fit Men-s Trousers");
+ 
+ })();
+</script> 

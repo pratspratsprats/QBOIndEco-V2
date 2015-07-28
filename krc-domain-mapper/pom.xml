@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.intuit.qbo.ecommerce</groupId>
+		<artifactId>krc</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>krc-domain-mapper</artifactId>
+	<properties>
+		<spring.version>4.0.3.RELEASE</spring.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+
+		<dependency>
+			<artifactId>spring-web</artifactId>
+			<groupId>org.springframework</groupId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>1.1.4.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.intuit.code.devkit</groupId>
+			<artifactId>ipp-java-qbapihelper</artifactId>
+			<scope>system</scope>
+			<version>1.2.0</version>
+			<systemPath>${basedir}\src\lib\ipp-java-qbapihelper-1.2.0-jar-with-dependencies.jar</systemPath>
+		</dependency>
+			<dependency>
+			<groupId>com.intuit.code.devkit.v3</groupId>
+			<artifactId>ipp-v3-java-devkit</artifactId>
+			<scope>system</scope>
+			<version>2.3.2</version>
+			<systemPath>${basedir}\src\lib\ipp-v3-java-devkit-2.3.4-jar-with-dependencies.jar</systemPath>
+		</dependency>
+		 	<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+	</dependencies>
+</project>

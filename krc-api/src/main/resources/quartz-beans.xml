@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean name="quartzJob"
+          class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass"
+                  value="com.intuit.qbo.quartz.OrderToBooksJob" />
+        <property name="durability" value="true" />
+        <property name="jobDataAsMap">
+            <map />
+        </property>
+    </bean>
+
+    <bean id="quartzTrigger"
+          class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="quartzJob" />
+        <property name="repeatInterval" value="${quartz.repeatInterval}" />
+        <property name="startDelay" value="${quartz.startDelay}" />
+    </bean>
+
+    <bean id="quartzDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${quartz2.dbDriverClassName}" />
+
+        <property name="url" value="${quartz2.dbDriverUrl}" />
+        <!--autoReconnect=true -->
+        <property name="username" value="${quartz2.dbUser}" />
+        <property name="password" value="${quartz2.dbPassword}" />
+        <!-- Connection Pool settings -->
+        <property name="maxActive" value="5" />
+        <property name="maxIdle" value="2" />
+        <property name="maxWait" value="10000" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="60" />
+        <property name="logAbandoned" value="true" />
+
+        <!-- Avoid idle database timeouts (for low-usage apps) -->
+        <property name="validationQuery" value="SELECT 1" />
+        <property name="testOnBorrow" value="true" />
+
+    </bean>
+    
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		id="schedulerFactoryBean">
+
+	<!-- 	<property name="autoStartup" value="${quartz2.autoStartup:true}" />
+		<property name="overwriteExistingJobs" value="true" />
+		<property name="dataSource" ref="quartzDataSource" /> -->
+
+		<!-- Add this to make the Spring Context Available -->
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+
+		<!-- Add Quartz Properties here -->
+		<!-- <property name="quartzProperties">
+			<props>
+				Configure Main Scheduler Properties
+				<prop key="org.quartz.scheduler.instanceName">InstanceNameX</prop>
+				<prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+
+				Configure ThreadPool
+				<prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+				<prop key="org.quartz.threadPool.threadCount">1</prop>
+				<prop key="org.quartz.threadPool.threadPriority">1</prop>
+				<prop
+					key="org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread">true</prop>
+
+				Configure JobStore
+				<prop key="org.quartz.jobStore.misfireThreshold">6000</prop>
+				<prop key="org.quartz.jobStore.class">org.quartz.impl.jdbcjobstore.JobStoreTX</prop>
+				<prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+				</prop>
+
+				Configure Datasources
+				<prop key="org.quartz.jobStore.dataSource">quartzDs</prop>
+				<prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
+				<prop key="org.quartz.jobStore.isClustered">true</prop>
+				<prop key="org.quartz.jobStore.clusterCheckinInterval">2000</prop>
+
+			</props>
+		</property> -->
+		
+		 <property name="jobDetails">
+            <list>
+                <ref bean="quartzJob" />
+            </list>
+        </property>
+
+		<property name="triggers">
+			<list>
+				<ref bean="quartzTrigger" />
+			</list>
+		</property>
+	</bean>
+  </beans>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<appender name="accountingLoggerAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${catalina.base}/logs/AccountingLogger.log
+		</File>
+		<Append>true</Append>
+		<encoder>
+			<pattern>[%d{dd MMM yy HH:mm:ss}] %c %-5p %X{rid} - %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/AccountingLogger.log.%d{yyyy-MM-dd}.gz
+			</fileNamePattern>
+			<maxHistory>720</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	
+  <root level="INFO">
+    <appender-ref ref="accountingLoggerAppender" />
+  </root>
+	
+	<logger name="com.intuit.incubation" level="INFO"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+ 
+	
+
+
+</configuration>

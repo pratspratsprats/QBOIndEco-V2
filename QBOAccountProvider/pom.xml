@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.intuit.qbo.company</groupId>
+  <artifactId>QBOAccountProvider</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>QBOAccountProviderUtility</name>
+  <description>Project to create account in QuickBooks Online</description>
+   <organization>
+		<name>Intuit</name>
+		<url>www.intuit.com</url>
+	</organization> 
+	
+  <properties>
+		<slf4j.version>1.6.4</slf4j.version>
+		<logback.version>1.0.1</logback.version>
+		<spring.version>3.1.0.RELEASE</spring.version>
+	</properties>
+	
+  <dependencies>
+  <!-- HTTP GET and POST -->
+  	<dependency>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpclient</artifactId>
+  		<version>4.2.2</version>
+  	</dependency>
+<!-- JSON mapping handling -->
+  	<dependency>
+  		<groupId>com.google.code.gson</groupId>
+  		<artifactId>gson</artifactId>
+  		<version>1.7.1</version>
+  	</dependency>
+  	
+  	<!-- Email template -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<!-- Logging framework -->
+  	<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		
+		<!-- Mail Apis -->
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+  </dependencies>
+  
+  <build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<developers>
+		<developer>
+			<id>amourya</id>
+			<name>Amaresh Mourya</name>
+			<email>amaresh_mourya@intuit.com</email>
+			<organization>Intuit</organization>
+			<organizationUrl>www.intuit.com</organizationUrl>
+			<roles>
+				<role>senior software engineer</role>
+			</roles>
+			<timezone>+5:30</timezone>
+		</developer>
+	</developers>
+  
+</project>
